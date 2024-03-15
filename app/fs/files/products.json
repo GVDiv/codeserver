@@ -1,0 +1,53 @@
+[
+  {
+    "id": "eec7fdf002f43649c3a14b57"
+  },
+  {
+    "id": "bb36639df4fccc1435109159"
+  },
+  {
+    "id": "16889a123dac174af88c6576"
+  },
+  {
+    "id": "c2668a2e831b6c91fde260f0"
+  },
+  {
+    "id": "c9ccbb83bc89e734e9f3329b"
+  },
+  {
+    "id": "7136796c576934ceb717cdfd",
+    "product": "tomate"
+  },
+  {
+    "id": "cbfaf8c483a09b53991cbb5b",
+    "product": "tomate"
+  },
+  {
+    "id": "34e2fc14ff5e2c37d85aa42c",
+    "product": "tomate"
+  },
+  {
+    "id": "a73d6f8e387fd26ed37c313c",
+    "product": "tomate",
+    "price": 200
+  },
+  {
+    "id": "6f8fe18425052459ad2cda86",
+    "product": "enlatado",
+    "title": "tomate",
+    "price": 200
+  },
+  {
+    "id": "d4e991dcc4ff61cd2b7e6ea8",
+    "title": "tomate",
+    "price": 200
+  },
+  {
+    "id": "32d72b49ac35693a9cef0e61",
+    "title": "zapatilla",
+    "photo": "picture.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 20
+  }
+]
