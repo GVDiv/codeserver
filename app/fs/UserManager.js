@@ -1,5 +1,6 @@
 const fs = require("fs");
 const crypto = require("crypto");
+const { error } = require("console");
 
 class UserManager {
   constructor() {
@@ -18,6 +19,11 @@ class UserManager {
   }
 
   async create(data) {
+    try {
+      if (!data) {
+        const error = new Error("No hay usuario");
+        throw error;
+      } else {
     const user = {
       id: crypto.randomBytes(12).toString("hex"),
       photo:
@@ -39,29 +45,48 @@ class UserManager {
       users = JSON.stringify(users, null, 2);
       await fs.promises.writeFile(this.path, users);
     }
+    }
+  }catch (error) {
+    throw error;
+  }
   }
 
   async read() {
+    try{
     let users = await fs.promises.readFile(this.path, "utf-8");
     users = JSON.parse(users);
     return users;
-    //agregar try catch y condicional en caso de que no haya usuarios
+    } catch (error){
+      console.log("No hay usuarios")
+      throw error
+    }
   }
 
   async readOne(id) {
+    try{
     let users = await fs.promises.readFile(this.path, "utf-8");
     users = JSON.parse(users);
     return users.find((each) => each.id === id);
+    } catch(error){
+      console.log("No hay usuario con ese Id")
+      throw error
+    }
     //agregar try catch y condicional en caso de no encontrar el usuario
   }
 
   async destroy(id) {
+    try{
     let users = await fs.promises.readFile(this.path, "utf-8");
     users = JSON.parse(users);
 
     const filtered = users.filter((each) => each.id !== id);
     await fs.promises.writeFile(filtered);
-    //agregar try catch y condicional en caso de no encontrar usuario
+    }
+    catch(error){
+      console.log("No hay usuario con ese Id")
+      throw error
+    }
+
   }
 }
 
