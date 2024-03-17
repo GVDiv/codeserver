@@ -107,7 +107,7 @@ async function test(){
     //   })
 
     console.log(await gestorDeUsuarios.read());
-    console.log(await gestorDeUsuarios.readOne(/*id*/""));
+    console.log(await gestorDeUsuarios.readOne("9cd22e4831c30a75895db9ba"));
 }
 
 test()
