@@ -1,0 +1,82 @@
+[
+  {
+    "id": "f8e4638c175f0c8cfc6dbf9d",
+    "title": "zapatilla",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 20
+  },
+  {
+    "id": "13a42bc52474fc800c09c132",
+    "title": "ojotas",
+    "photo": "ojotas.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 100
+  },
+  {
+    "id": "bd941c461592143a7e09d32c",
+    "title": "zapatos",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 120,
+    "stock": 30
+  },
+  {
+    "id": "dd22f60ee210e78d4d38c1e6",
+    "title": "sandalias",
+    "photo": "sandalias.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 50
+  },
+  {
+    "id": "e5a16176cf5e465c6359bc4c",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "Deportivo",
+    "price": 120,
+    "stock": 200
+  },
+  {
+    "id": "b2467b51b9b92642afb2c0cb",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "Casual",
+    "price": 90,
+    "stock": 500
+  },
+  {
+    "id": "c850301ee1f8618218153d3b",
+    "title": "campera",
+    "photo": "campera.png",
+    "category": "Deportivo",
+    "price": 190,
+    "stock": 120
+  },
+  {
+    "id": "4071a693419ef760cab9af18",
+    "title": "campera",
+    "photo": "campera.png",
+    "category": "Vintage",
+    "price": 220,
+    "stock": 50
+  },
+  {
+    "id": "62ee343fafdba1d1c15a962f",
+    "title": "gorra",
+    "photo": "gorra.png",
+    "category": "Casual",
+    "price": 70,
+    "stock": 300
+  },
+  {
+    "id": "4a8f2f9ad3ff05becdf67d13",
+    "title": "anteojos",
+    "photo": "anteojos.png",
+    "category": "de sol Hombres",
+    "price": 70,
+    "stock": 300
+  }
+]
