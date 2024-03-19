@@ -1,0 +1,20 @@
+{
+  "name": "codeserver",
+  "version": "1.0.0",
+  "description": "-ProductManager: con el gestor de productos se puede agregar un nuevo producto al arreglo de productos, llamando al metodo create y pasandole el objeto con las propiedades title, photo, category, price y stock.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node ./server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
