@@ -26,7 +26,7 @@ server.get("/", async (requerimientos, respuesta) => {
       .json({ response: "CODER API ERROR", success: false });
   }
 });
-//READ NOTES
+//READ NOTES CON FILTRO QUERY
 server.get("/api/notes", async (req, res) => {
   try {
     const { category } = req.query;
@@ -51,30 +51,35 @@ server.get("/api/notes", async (req, res) => {
   }
 });
 
-//READ PRODUCTS
+//READ PRODUCTS CON FILTRO POR QUERY
 server.get("/api/products", async (req, res) => {
   try {
     const { category } = req.query;
     const allProducts = await productManager.read(category);
-    if (allProducts !== 0) {
+    if (allProducts !== null) {
       return res.status(200).json({
         response: allProducts,
         category,
         success: true,
+        statusCode: 200
       });
     } else {
-      const error = new Error("Not Found")
+      const error = new Error("No hay productos")
       error.status = 404;
       throw error
     }
   } catch (error) {
     console.log(error);
-    return res.status(error.status).json({
+    return res.status(error.status || 404).json({
       response: error.message,
       success: false,
+      statusCode: error.status || 404,
     });
   }
 });
+
+//READONE PRODUCT
+
 
 //1 PARAMETRO
 server.get("/api/notes/:nid", async (req, res) => {

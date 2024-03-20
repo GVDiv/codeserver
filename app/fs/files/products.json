@@ -43,7 +43,7 @@
     "id": "b2467b51b9b92642afb2c0cb",
     "title": "remera",
     "photo": "remera.png",
-    "category": "Casual",
+    "category": "casual",
     "price": 90,
     "stock": 500
   },
@@ -67,7 +67,7 @@
     "id": "62ee343fafdba1d1c15a962f",
     "title": "gorra",
     "photo": "gorra.png",
-    "category": "Casual",
+    "category": "casual",
     "price": 70,
     "stock": 300
   },

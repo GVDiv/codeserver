@@ -46,22 +46,23 @@ class ProductManager {
     }
   }
 
-  async read(cat) {
+  //METODO READ CON FILTRO POR QUERY
+  async read(cat = "calzado") {
     try {
       let allProducts = await fs.promises.readFile(this.path, "utf-8");
       allProducts = JSON.parse(allProducts);
       //FILTRO QUERY
       allProducts = allProducts.filter((each) => each.category == cat);
-      //VALIDACION
+      //SI NO HAY PRODUCTOS MOSTRAR AL USER
       if (allProducts.length === 0) {
-        return null
+        throw new Error("No hay productos")
+        //return null;
       } else {
-        
+        console.log(allProducts);
+        return allProducts;
       }
-
-      console.log(allProducts);
-      return allProducts;
     } catch (error) {
+      console.log(error);
       throw error;
     }
   }
