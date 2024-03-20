@@ -1,9 +1,9 @@
-const fs = require("fs");
-const crypto = require("crypto");
+import fs from "fs";
+import crypto from "crypto";
 
 class ProductManager {
   constructor() {
-    this.path = "./fs/files/products.json";
+    this.path = "./app/fs/files/products.json";
     this.init();
   }
   init() {
@@ -26,7 +26,9 @@ class ProductManager {
         const product = {
           id: crypto.randomBytes(12).toString("hex"),
           title: data.title,
-          photo: data.photo || "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ",
+          photo:
+            data.photo ||
+            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ",
           category: data.category,
           price: data.price,
           stock: data.stock,
@@ -44,10 +46,19 @@ class ProductManager {
     }
   }
 
-  async read() {
+  async read(cat) {
     try {
       let allProducts = await fs.promises.readFile(this.path, "utf-8");
       allProducts = JSON.parse(allProducts);
+      //FILTRO QUERY
+      allProducts = allProducts.filter((each) => each.category == cat);
+      //VALIDACION
+      if (allProducts.length === 0) {
+        return null
+      } else {
+        
+      }
+
       console.log(allProducts);
       return allProducts;
     } catch (error) {
@@ -178,13 +189,13 @@ async function testCreate() {
   }
 }
 
-async function testRead(){
-  const gestorDeProductos = new ProductManager()
-  gestorDeProductos.read()
+async function testRead() {
+  const gestorDeProductos = new ProductManager();
+  gestorDeProductos.read();
 }
 
 async function testReadOne() {
-  const gestorDeProductos = new ProductManager()
+  const gestorDeProductos = new ProductManager();
   gestorDeProductos.readOne("");
 }
 
@@ -193,8 +204,10 @@ async function testDestroy() {
   gestorDeProductos.destroy("");
 }
 
+const productManager = new ProductManager();
+export default productManager;
+
 //testCreate();
-testRead()
+//testRead()
 //testReadOne()
 //testDestroy();
-

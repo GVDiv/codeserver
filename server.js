@@ -1,5 +1,6 @@
 import express from "express";
 import notesManager from "./app/fs/NotesManager.js";
+import productManager from "./app/fs/ProductManager.fs.js";
 
 //SERVER
 const server = express();
@@ -25,7 +26,7 @@ server.get("/", async (requerimientos, respuesta) => {
       .json({ response: "CODER API ERROR", success: false });
   }
 });
-//READ
+//READ NOTES
 server.get("/api/notes", async (req, res) => {
   try {
     const { category } = req.query;
@@ -50,6 +51,31 @@ server.get("/api/notes", async (req, res) => {
   }
 });
 
+//READ PRODUCTS
+server.get("/api/products", async (req, res) => {
+  try {
+    const { category } = req.query;
+    const allProducts = await productManager.read(category);
+    if (allProducts !== 0) {
+      return res.status(200).json({
+        response: allProducts,
+        category,
+        success: true,
+      });
+    } else {
+      const error = new Error("Not Found")
+      error.status = 404;
+      throw error
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status).json({
+      response: error.message,
+      success: false,
+    });
+  }
+});
+
 //1 PARAMETRO
 server.get("/api/notes/:nid", async (req, res) => {
   try {
@@ -61,9 +87,9 @@ server.get("/api/notes/:nid", async (req, res) => {
         success: true,
       });
     } else {
-      const error = new Error("Not Found")
-      error.statusCode = 404
-      throw error
+      const error = new Error("Not Found");
+      error.statusCode = 404;
+      throw error;
     }
   } catch (error) {
     console.log(error);
