@@ -1,4 +1,5 @@
 import express from "express";
+import notesManager from "./app/fs/NotesManager.js";
 
 //SERVER
 const server = express();
@@ -7,8 +8,8 @@ const ready = () => console.log("server ready on port " + port);
 server.listen(port, ready);
 
 //MIDLEWARES
-
 server.use(express.urlencoded({ extended: true }));
+//OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
 
 //ROUTER
 server.get("/", async (requerimientos, respuesta) => {
@@ -24,15 +25,65 @@ server.get("/", async (requerimientos, respuesta) => {
       .json({ response: "CODER API ERROR", success: false });
   }
 });
-
-//un parametro
-server.get("/api/notes/:text", async (req, res) => {
+//READ
+server.get("/api/notes", async (req, res) => {
   try {
-    const { text } = req.params;
+    const { category } = req.query;
+    const all = await notesManager.read(category);
+    if (all !== 0) {
+      return res.status(200).json({
+        response: all,
+        category,
+        success: true,
+      });
+    } else {
+      const error = new Error("Not Found");
+      error.status = 404;
+      throw error;
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status).json({
+      response: error.message,
+      success: false,
+    });
+  }
+});
+
+//1 PARAMETRO
+server.get("/api/notes/:nid", async (req, res) => {
+  try {
+    const { nid } = req.params;
+    const one = await notesManager.readOne(nid);
+    if (one) {
+      return res.status(200).json({
+        response: one,
+        success: true,
+      });
+    } else {
+      const error = new Error("Not Found")
+      error.statusCode = 404
+      throw error
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status).json({
+      response: error.message,
+      success: false,
+    });
+  }
+});
+
+//2 PARAMETROS
+server.get("/api/notes/:text/:category", async (req, res) => {
+  try {
+    const { text, category } = req.params;
+    const data = { text, category };
+    const one = await notesManager.create(data);
     return res.status(201).json({
-        respose: text,
-        success: true
-    })
+      respose: one,
+      success: true,
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({

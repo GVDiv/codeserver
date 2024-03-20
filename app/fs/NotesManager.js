@@ -1,9 +1,8 @@
-const fs = require("fs");
-const crypto = require("crypto");
-
+import fs from "fs";
+import crypto from "crypto";
 class NotesManager {
   constructor() {
-    this.path = "./fs/files/notes.json";
+    this.path = "./app/fs/files/notes.json";
     this.init();
   }
   init() {
@@ -25,6 +24,7 @@ class NotesManager {
         const note = {
           id: crypto.randomBytes(12).toString("hex"),
           text: data.text,
+          category: data.category || "to do",
           date: data.date || new Date(),
         };
         let all = await fs.promises.readFile(this.path, "utf-8");
@@ -39,10 +39,20 @@ class NotesManager {
       throw error;
     }
   }
-  async read() {
+  async read(cat = "to do") {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
+      //ESPERO LA LECTURA DEL ARCHIVO Y LO GUARDO EN LA VARIABLR ALL
       all = JSON.parse(all);
+      //PARSEO
+      //FILTRO 
+      all = all.filter((each) => each.category == cat);
+      if (all.length === 0) {
+        //SI NO HAY DATOS
+        return null
+      } else {
+        
+      }
       console.log(all);
       return all;
     } catch (error) {
@@ -86,18 +96,21 @@ class NotesManager {
   }
 }
 
-const notes = new NotesManager();
+const notesManager = new NotesManager();
+export default notesManager;
 
+/*
 async function test() {
   try {
     const notes = new NotesManager();
-    notes.create({ text: "mi primera nota" });
+    notes.create({ text: "mi primera nota" , category: "do"});
     notes.read();
-    //notes.readOne("");
-    //notes.destroy("68f467da49666c1b4d76381c")
+    notes.readOne("");
+    notes.destroy("68f467da49666c1b4d76381c")
   } catch (error) {
     console.log(error);
   }
 }
 
 test();
+*/
