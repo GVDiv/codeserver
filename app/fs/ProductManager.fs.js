@@ -21,6 +21,7 @@ class ProductManager {
     try {
       if (!data) {
         const error = new Error("ingrese producto");
+        console.log(error)
         throw error;
       } else {
         const product = {
@@ -40,6 +41,7 @@ class ProductManager {
         return product;
       }
     } catch (error) {
+      console.log(error)
       throw error;
     }
   }
@@ -51,6 +53,7 @@ class ProductManager {
       console.log(allProducts);
       return allProducts;
     } catch (error) {
+      console.log(error)
       throw error;
     }
   }
@@ -67,6 +70,7 @@ class ProductManager {
         return one;
       }
     } catch (error) {
+      console.log(error)
       throw error;
     }
   }
@@ -86,6 +90,7 @@ class ProductManager {
         return one;
       }
     } catch (error) {
+      console.log(error)
       throw error;
     }
   }
