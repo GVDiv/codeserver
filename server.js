@@ -61,12 +61,12 @@ server.get("/api/products", async (req, res) => {
         response: allProducts,
         category,
         success: true,
-        statusCode: 200
+        statusCode: 200,
       });
     } else {
-      const error = new Error("No hay productos")
+      const error = new Error("No hay productos");
       error.status = 404;
-      throw error
+      throw error;
     }
   } catch (error) {
     console.log(error);
@@ -78,8 +78,32 @@ server.get("/api/products", async (req, res) => {
   }
 });
 
-//READONE PRODUCT
-
+//READONE ID PRODUCT
+server.get("/api/products/:nid", async (req, res) => {
+  try {
+    const { nid } = req.params;
+    const one = await productManager.readOne(nid);
+    if (one) {
+      return res.status(200).json({
+        response: one,
+        success: true,
+        statusCode: 200,
+      });
+    } else {
+      const error = new Error("Not found");
+      error.statusCode = 404;
+      throw error;
+    }
+  } catch (error) {
+    console.log(error);
+    //const statusCode = error.statusCode || 500;
+    return res.status(error.status || 404).json({
+      response: error.message,
+      success: false,
+      statusCode: error.status || 404,
+    });
+  }
+});
 
 //1 PARAMETRO
 server.get("/api/notes/:nid", async (req, res) => {
