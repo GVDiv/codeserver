@@ -21,13 +21,14 @@ class ProductManager {
     try {
       if (!data) {
         const error = new Error("ingrese producto");
-        console.log(error)
-        throw error;
+        console.log(error);
       } else {
         const product = {
           id: crypto.randomBytes(12).toString("hex"),
           title: data.title,
-          photo: data.photo || "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ",
+          photo:
+            data.photo ||
+            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ",
           category: data.category,
           price: data.price,
           stock: data.stock,
@@ -41,8 +42,7 @@ class ProductManager {
         return product;
       }
     } catch (error) {
-      console.log(error)
-      throw error;
+      console.log(error);
     }
   }
 
@@ -53,8 +53,7 @@ class ProductManager {
       console.log(allProducts);
       return allProducts;
     } catch (error) {
-      console.log(error)
-      throw error;
+      console.log(error);
     }
   }
 
@@ -70,8 +69,7 @@ class ProductManager {
         return one;
       }
     } catch (error) {
-      console.log(error)
-      throw error;
+      console.log(error);
     }
   }
 
@@ -90,8 +88,7 @@ class ProductManager {
         return one;
       }
     } catch (error) {
-      console.log(error)
-      throw error;
+      console.log(error);
     }
   }
 }
@@ -183,14 +180,14 @@ async function testCreate() {
   }
 }
 
-async function testRead(){
-  const gestorDeProductos = new ProductManager()
-  gestorDeProductos.read()
+async function testRead() {
+  const gestorDeProductos = new ProductManager();
+  gestorDeProductos.read();
 }
 
 async function testReadOne() {
-  const gestorDeProductos = new ProductManager()
-  gestorDeProductos.readOne("");
+  const gestorDeProductos = new ProductManager();
+  gestorDeProductos.readOne("f8e4638c175f0c8cfc6dbf9d");
 }
 
 async function testDestroy() {
@@ -199,7 +196,6 @@ async function testDestroy() {
 }
 
 //testCreate();
-testRead()
-//testReadOne()
-//testDestroy();
-
+testRead();
+testReadOne()
+testDestroy();

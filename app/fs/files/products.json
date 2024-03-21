@@ -8,14 +8,6 @@
     "stock": 20
   },
   {
-    "id": "13a42bc52474fc800c09c132",
-    "title": "ojotas",
-    "photo": "ojotas.png",
-    "category": "calzado",
-    "price": 90,
-    "stock": 100
-  },
-  {
     "id": "bd941c461592143a7e09d32c",
     "title": "zapatos",
     "photo": "zapatilla.png",
@@ -73,6 +65,86 @@
   },
   {
     "id": "4a8f2f9ad3ff05becdf67d13",
+    "title": "anteojos",
+    "photo": "anteojos.png",
+    "category": "de sol Hombres",
+    "price": 70,
+    "stock": 300
+  },
+  {
+    "id": "6d059e6cc1853ebd34993dda",
+    "title": "zapatilla",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 20
+  },
+  {
+    "id": "3e26d5eba38796a232e81c1f",
+    "title": "ojotas",
+    "photo": "ojotas.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 100
+  },
+  {
+    "id": "5072b4e9b0455f5036c4f750",
+    "title": "zapatos",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 120,
+    "stock": 30
+  },
+  {
+    "id": "f1b45d904341484d9a822917",
+    "title": "sandalias",
+    "photo": "sandalias.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 50
+  },
+  {
+    "id": "733cb018a1f68e7c223cd77a",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "Deportivo",
+    "price": 120,
+    "stock": 200
+  },
+  {
+    "id": "ad541dadf97e47a044143d04",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "Casual",
+    "price": 90,
+    "stock": 500
+  },
+  {
+    "id": "1164b94a789f91864a2defe6",
+    "title": "campera",
+    "photo": "campera.png",
+    "category": "Deportivo",
+    "price": 190,
+    "stock": 120
+  },
+  {
+    "id": "e3b5f826f914f86266c9894e",
+    "title": "campera",
+    "photo": "campera.png",
+    "category": "Vintage",
+    "price": 220,
+    "stock": 50
+  },
+  {
+    "id": "8d31e1bf563b4857426506a9",
+    "title": "gorra",
+    "photo": "gorra.png",
+    "category": "Casual",
+    "price": 70,
+    "stock": 300
+  },
+  {
+    "id": "d9e532f9292a13b8f2e8f5a8",
     "title": "anteojos",
     "photo": "anteojos.png",
     "category": "de sol Hombres",
