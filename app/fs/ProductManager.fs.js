@@ -11,16 +11,16 @@ class ProductManager {
     if (!exists) {
       const stringData = JSON.stringify([], null, 2);
       fs.writeFileSync(this.path, stringData);
-      console.log("archivo creado");
+      console.log("File Created");
     } else {
-      console.log("archivo ya existe");
+      console.log("File Already Exists");
     }
   }
 
   async create(data) {
     try {
       if (!data) {
-        const error = new Error("ingrese producto");
+        const error = new Error("Enter Product");
         throw error;
       } else {
         const product = {
@@ -38,11 +38,11 @@ class ProductManager {
         allProducts.push(product);
         allProducts = JSON.stringify(allProducts, null, 2);
         await fs.promises.writeFile(this.path, allProducts);
-        console.log("Producto creado");
+        console.log("Product Created");
         return product;
       }
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 
@@ -57,14 +57,14 @@ class ProductManager {
       }
       //SI NO HAY PRODUCTOS MOSTRAR AL USER
       if (allProducts.length === 0) {
-        throw new Error("No hay productos");
+        throw new Error("Products Not Found");
       } else {
         console.log(allProducts);
         return allProducts;
       }
     } catch (error) {
       console.log(error);
-      throw error;
+      //throw error
     }
   }
 
@@ -74,13 +74,14 @@ class ProductManager {
       allProducts = JSON.parse(allProducts);
       let one = allProducts.find((each) => each.id === id);
       if (!one) {
-        throw new Error("id no encontrado");
+        throw new Error("Product Not Found");
       } else {
         console.log(one);
         return one;
       }
     } catch (error) {
-      throw error;
+      console.log(error);
+      //throw error
     }
   }
 
@@ -90,16 +91,16 @@ class ProductManager {
       allProducts = JSON.parse(allProducts);
       let one = allProducts.find((each) => each.id === id);
       if (!one) {
-        throw new Error("producto no encontrado");
+        throw new Error("Product Not Found");
       } else {
         let filtered = allProducts.filter((each) => each.id !== id);
         filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
-        console.log(`producto ${one.title} eliminado`);
+        console.log(`Product ${one.title} Removed`);
         return one;
       }
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 }

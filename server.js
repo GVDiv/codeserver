@@ -26,37 +26,13 @@ server.get("/", async (requerimientos, respuesta) => {
       .json({ response: "CODER API ERROR", success: false });
   }
 });
-//READ NOTES CON FILTRO QUERY
-server.get("/api/notes", async (req, res) => {
-  try {
-    const { category } = req.query;
-    const all = await notesManager.read(category);
-    if (all !== 0) {
-      return res.status(200).json({
-        response: all,
-        category,
-        success: true,
-      });
-    } else {
-      const error = new Error("Not Found");
-      error.status = 404;
-      throw error;
-    }
-  } catch (error) {
-    console.log(error);
-    return res.status(error.status).json({
-      response: error.message,
-      success: false,
-    });
-  }
-});
 
-//READ PRODUCTS CON FILTRO POR QUERY
+//READ ALL PRODUCTS CON FILTRO POR QUERY OPCIONAL
 server.get("/api/products", async (req, res) => {
   try {
     const { category } = req.query;
     const allProducts = await productManager.read(category);
-    if (allProducts !== null) {
+    if (allProducts) {
       return res.status(200).json({
         response: allProducts,
         category,
@@ -64,7 +40,7 @@ server.get("/api/products", async (req, res) => {
         statusCode: 200,
       });
     } else {
-      const error = new Error("No hay productos");
+      const error = new Error("There are no products");
       error.status = 404;
       throw error;
     }
@@ -90,7 +66,7 @@ server.get("/api/products/:nid", async (req, res) => {
         statusCode: 200,
       });
     } else {
-      const error = new Error("Not found");
+      const error = new Error("Product Not found");
       error.statusCode = 404;
       throw error;
     }
@@ -101,6 +77,33 @@ server.get("/api/products/:nid", async (req, res) => {
       response: error.message,
       success: false,
       statusCode: error.status || 404,
+    });
+  }
+});
+
+        /*-------------- NOTES ---------------- */
+
+//READ NOTES CON FILTRO QUERY
+server.get("/api/notes", async (req, res) => {
+  try {
+    const { category } = req.query;
+    const all = await notesManager.read(category);
+    if (all !== 0) {
+      return res.status(200).json({
+        response: all,
+        category,
+        success: true,
+      });
+    } else {
+      const error = new Error("Not Found");
+      error.status = 404;
+      throw error;
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status).json({
+      response: error.message,
+      success: false,
     });
   }
 });
