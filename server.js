@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 import notesManager from "./app/fs/NotesManager.js";
 import productManager from "./app/fs/ProductManager.fs.js";
 
@@ -11,6 +11,8 @@ server.listen(port, ready);
 //MIDLEWARES
 server.use(express.urlencoded({ extended: true }));
 //OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
+server.use(express.json());
+//LEE Y TRANSFORMA A FORMATO JSON
 
 //ROUTER
 server.get("/", async (requerimientos, respuesta) => {
@@ -81,7 +83,7 @@ server.get("/api/products/:nid", async (req, res) => {
   }
 });
 
-        /*-------------- NOTES ---------------- */
+/*-------------- NOTES ---------------- */
 
 //READ NOTES CON FILTRO QUERY
 server.get("/api/notes", async (req, res) => {
@@ -150,3 +152,41 @@ server.get("/api/notes/:text/:category", async (req, res) => {
     });
   }
 });
+
+//METODO POST
+const create = async (req, res) => {
+  try {
+    const data = req.body;
+    const one = await productManager.create(data);
+    return res.json({
+      statusCode: 201,
+      message: "created id: " + one.id,
+    });
+  } catch (error) {
+    return res.json({
+      statusCode: error.statusCode || 500,
+      message: error.message || "api error",
+    });
+  }
+};
+
+//METODO UPDATE
+const update = async (req, res) => {
+  try {
+    const { nid } = req.params;
+    const data = req.body;
+    const one = await productManager.update(nid, data);
+    return res.json({
+      statusCode: 200,
+      message: "update id: " + one.id,
+    });
+  } catch (error) {
+    return res.json({
+      statusCode: error.statusCode || 500,
+      message: error.message || "api error",
+    });
+  }
+};
+
+server.post("/api/products", create);
+server.put("/api/products/:nid", update);

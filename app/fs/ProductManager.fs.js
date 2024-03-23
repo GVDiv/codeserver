@@ -16,7 +16,7 @@ class ProductManager {
       console.log("File Already Exists");
     }
   }
-
+  //METODO CREATE
   async create(data) {
     try {
       if (!data) {
@@ -46,6 +46,43 @@ class ProductManager {
     }
   }
 
+  //METODO UPDATE
+  async update(id, data) {
+    try {
+      let one = await this.readOne(id); // Esperar la lectura del producto con el id proporcionado
+      if (!one) {
+        throw new Error("Product Not Found");
+      } else {
+        let allProducts = await fs.promises.readFile(this.path, "utf-8");
+        if (!allProducts) {
+          throw new Error("Failed to read products file");
+        }
+        allProducts = JSON.parse(allProducts);
+        // Recorrer todas las propiedades del objeto data
+        for (let key in data) {
+          // Verificar si la propiedad existe en el objeto one antes de actualizarla
+          if (one.hasOwnProperty(key)) {
+            one[key] = data[key]; // Actualizar la propiedad con el valor proporcionado en data
+          }
+        }
+        // Encontrar el índice del producto con el id proporcionado
+        const index = allProducts.findIndex((product) => product.id === id);
+        // Reemplazar el producto actualizado en la lista de productos
+        allProducts[index] = one;
+        // Escribir la lista de productos actualizada en el archivo
+        await fs.promises.writeFile(
+          this.path,
+          JSON.stringify(allProducts, null, 2)
+        );
+        console.log(`Product ${id} Updated`);
+        return one; // Devolver el producto actualizado
+      }
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+
   //METODO READ CON FILTRO POR QUERY
   async read(cat = "all") {
     try {
@@ -68,6 +105,7 @@ class ProductManager {
     }
   }
 
+  //METODO READONE ID
   async readOne(id) {
     try {
       let allProducts = await fs.promises.readFile(this.path, "utf-8");
@@ -85,6 +123,7 @@ class ProductManager {
     }
   }
 
+  //METODO DESTROY
   async destroy(id) {
     try {
       let allProducts = await fs.promises.readFile(this.path, "utf-8");
@@ -105,6 +144,7 @@ class ProductManager {
   }
 }
 
+//CREACION DE PRODUCTOS
 async function testCreate() {
   try {
     const gestorDeProductos = new ProductManager();

@@ -158,5 +158,15 @@
     "category": "de sol Hombres",
     "price": 70,
     "stock": 300
+  },
+  {
+    "id": "40bf3114d6974aa8aa79b452",
+    "title": "postman update",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  },
+  {
+    "id": "b2fa73232d8419c29cfef887",
+    "title": "from postman",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
   }
 ]
