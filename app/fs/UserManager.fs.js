@@ -104,6 +104,21 @@ async function testCreate() {
     password: "sabrina123",
     role: 2,
   });
+
+  gestorDeUsuarios.create({
+    photo: "user.png",
+    email: "anibal@gmail.com",
+    password: "anibal123",
+    role: 2,
+  });
+  
+  
+  gestorDeUsuarios.create({
+    photo: "user.png",
+    email: "jose@gmail.com",
+    password: "jose123",
+    role: 1,
+  });
 }
 async function testRead() {
   const gestorDeUsuarios = new UserManager();

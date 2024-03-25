@@ -32,7 +32,7 @@ class UsersManager {
     }
   }
 
-  read() {
+  async read() {
     try{
     let users = UsersManager.#users;
       if(!users){
@@ -47,12 +47,14 @@ class UsersManager {
   }
   }
 
-  readOne(id) {
+  // con el el id de cripto, este se genera cada vez que se corre el programa
+  // para probar los metodos readOne y destroy usamos el mail
+  readOne(email) {
     try {
       let users = UsersManager.#users
-      let encontrado = users.find((each) => each.id === id); 
+      let encontrado = users.find((each) => each.email === email); 
       if(!encontrado){
-        const error = new Error("No hay usuario con ese id")
+        const error = new Error("No hay usuario con ese email")
         console.log(error)
       } else {
         return encontrado
@@ -62,9 +64,9 @@ class UsersManager {
     }
   }
 
-  destroy(id) {
+  destroy(email) {
     try {
-    const usuariosFiltrados = UsersManager.#users.filter((each) => each.id !== id);
+    const usuariosFiltrados = UsersManager.#users.filter((each) => each.email !== email);
     if(usuariosFiltrados === UsersManager.#users){
       throw new Error("Usuario no existente")
     }else{
@@ -76,20 +78,59 @@ class UsersManager {
   }
 }
 
-const gestorDeUsuarios = new UsersManager();
-gestorDeUsuarios.create({
-  photo: "user.png",
-  email: "gabriel@gmail.com",
-  password: "gabriel123",
-  role: 1,
-});
+ function testCreate() {
+  const gestorDeUsuarios = new UsersManager();
+   gestorDeUsuarios.create({
+    photo: "user.png",
+    email: "gabriel@gmail.com",
+    password: "gabriel123",
+    role: 1,
+  });
 
-gestorDeUsuarios.create({
-  photo: "user.png",
-  email: "sabrina@gmail.com",
-  password: "sabrina123",
-  role: 2,
-});
+   gestorDeUsuarios.create({
+    photo: "user.png",
+    email: "sabrina@gmail.com",
+    password: "sabrina123",
+    role: 2,
+  });
 
-console.log(gestorDeUsuarios.read());
-console.log(gestorDeUsuarios.readOne("9cd22e4831c30a75895db9ba"));
+   gestorDeUsuarios.create({
+    photo: "user.png",
+    email: "anibal@gmail.com",
+    password: "anibal123",
+    role: 2,
+  });
+  
+  
+   gestorDeUsuarios.create({
+    photo: "user.png",
+    email: "jose@gmail.com",
+    password: "jose123",
+    role: 1,
+  });
+}
+
+ function testRead() {
+  const gestorDeUsuarios = new UsersManager();
+  console.log(gestorDeUsuarios.read());
+}
+
+ function testReadOne(username) {
+  const gestorDeUsuarios = new UsersManager();
+  console.log(gestorDeUsuarios.readOne(username));
+}
+
+ function testDestroy(username) {
+  const gestorDeUsuarios = new UsersManager();
+  gestorDeUsuarios.destroy(username);
+}
+
+function run (){
+testCreate()  //exito
+testRead()    //exito
+testReadOne("jose@gmail.com") // exito
+testDestroy("anibal@gmail.com") // exito
+testRead()  
+}
+
+run()
