@@ -173,9 +173,9 @@ const create = async (req, res) => {
 //METODO UPDATE
 const update = async (req, res) => {
   try {
-    const { nid } = req.params;
+    const { pid } = req.params;
     const data = req.body;
-    const one = await productManager.update(nid, data);
+    const one = await productManager.update(pid, data);
     return res.json({
       statusCode: 200,
       message: "update id: " + one.id,
@@ -189,4 +189,4 @@ const update = async (req, res) => {
 };
 
 server.post("/api/products", create);
-server.put("/api/products/:nid", update);
+server.put("/api/products/:pid", update);
