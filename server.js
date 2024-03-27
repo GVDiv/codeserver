@@ -2,7 +2,6 @@ import express, { json } from "express";
 import notesManager from "./app/fs/NotesManager.js";
 import productManager from "./app/fs/ProductManager.fs.js";
 import userManager from "./app/fs/UserManager.fs.js";
-import { read } from "fs";
 
 //SERVER
 const server = express();
@@ -30,8 +29,7 @@ server.get("/", async (requerimientos, respuesta) => {
       .json({ response: "CODER API ERROR", success: false });
   }
 });
-
-//READ ALL PRODUCTS CON FILTRO POR QUERY OPCIONAL
+//ROUTER readALL PRODUCTS CON FILTRO POR QUERY OPCIONAL
 server.get("/api/products", async (req, res) => {
   try {
     const { category } = req.query;
@@ -57,8 +55,7 @@ server.get("/api/products", async (req, res) => {
     });
   }
 });
-
-//READONE ID PRODUCT
+//ROUTER readID PRODUCT
 server.get("/api/products/:nid", async (req, res) => {
   try {
     const { nid } = req.params;
@@ -84,6 +81,63 @@ server.get("/api/products/:nid", async (req, res) => {
     });
   }
 });
+
+//METODO POST
+const create = async (req, res) => {
+  try {
+    const data = req.body;
+    const one = await productManager.create(data);
+    return res.json({
+      statusCode: 201,
+      message: "created id: " + one.id,
+    });
+  } catch (error) {
+    return res.json({
+      statusCode: error.statusCode || 500,
+      message: error.message || "api error",
+    });
+  }
+};
+
+//METODO UPDATE
+const update = async (req, res) => {
+  try {
+    const { pid } = req.params;
+    const data = req.body;
+    const one = await productManager.update(pid, data);
+    return res.json({
+      statusCode: 200,
+      message: "update id: " + one.id,
+    });
+  } catch (error) {
+    return res.json({
+      statusCode: error.statusCode || 500,
+      message: error.message || "api error",
+    });
+  }
+};
+
+//METODO DESTROY
+const destroy = async (req, res) => {
+  try {
+    const { pid } = req.params
+    const one = await productManager.destroy(pid)
+    return res.json({
+      statusCode: 200,
+      message:`Product Removed`,
+      response:one
+    })
+  } catch (error) {
+    return res.json({
+      statusCode: error.statusCode || 500,
+      message: error.message || "Api error",
+    });
+  }
+};
+
+server.post("/api/products", create);
+server.put("/api/products/:pid", update);
+server.delete("/api/products/:pid", destroy);
 
 /*-------------- NOTES ---------------- */
 
@@ -155,41 +209,6 @@ server.get("/api/notes/:text/:category", async (req, res) => {
   }
 });
 
-//METODO POST
-const create = async (req, res) => {
-  try {
-    const data = req.body;
-    const one = await productManager.create(data);
-    return res.json({
-      statusCode: 201,
-      message: "created id: " + one.id,
-    });
-  } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "api error",
-    });
-  }
-};
-
-//METODO UPDATE
-const update = async (req, res) => {
-  try {
-    const { pid } = req.params;
-    const data = req.body;
-    const one = await productManager.update(pid, data);
-    return res.json({
-      statusCode: 200,
-      message: "update id: " + one.id,
-    });
-  } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "api error",
-    });
-  }
-};
-
 /////// Usuarios
 //Read by role
 server.get("/api/users", async (req, res) => {
@@ -218,7 +237,6 @@ server.get("/api/users", async (req, res) => {
   }
 });
 
-//READONE ID PRODUCT
 server.get("/api/users/:uid", async (req, res) => {
   try {
     const { uid } = req.params;
@@ -243,6 +261,3 @@ server.get("/api/users/:uid", async (req, res) => {
     });
   }
 });
-
-server.post("/api/products", create);
-server.put("/api/products/:pid", update);

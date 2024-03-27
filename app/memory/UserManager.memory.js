@@ -33,13 +33,12 @@ class  UserManager{
   }
 
   async read() {
-    try {
-      let users = UserManager.#users;
-
-      if (!users) {
-        const error = new Error("No hay usuarios");
-        console.log(error);
-      } else {
+    try{
+    let users = UsersManager.#users;
+      if(!users){
+        const error = new Error("No hay usuarios")
+        console.log(error)
+      } else{
         return users;
       }
     } catch (error) {
@@ -82,13 +81,13 @@ class  UserManager{
 }
 
 function testCreate() {
-  const gestorDeUsuarios = new (UserManager);
-  gestorDeUsuarios.create({
-    photo: "user.png",
-    email: "gabriel@gmail.com",
-    password: "gabriel123",
-    role: 1,
-  });
+const gestorDeUsuarios = new UserManager();
+gestorDeUsuarios.create({
+  photo: "user.png",
+  email: "gabriel@gmail.com",
+  password: "gabriel123",
+  role: 1,
+});
 
   gestorDeUsuarios.create({
     photo: "user.png",
