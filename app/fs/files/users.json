@@ -1,9 +1,23 @@
 [
   {
-    "id": "9195bc76e728e372db3aa533",
+    "id": "e9e9a1a1fcc269f85f7e6b56",
+    "photo": "user.png",
+    "email": "gabriel@gmail.com",
+    "password": "gabriel123",
+    "role": 1
+  },
+  {
+    "id": "136b8294809399460e5076ba",
     "photo": "user.png",
     "email": "sabrina@gmail.com",
     "password": "sabrina123",
+    "role": 2
+  },
+  {
+    "id": "08897cdb0d26f6defa556143",
+    "photo": "user.png",
+    "email": "anibal@gmail.com",
+    "password": "anibal123",
     "role": 2
   }
 ]

@@ -1,6 +1,6 @@
-const crypto = require("crypto");
+import crypto from "crypto";
 
-class UsersManager {
+class  UserManager{
   static #users = [];
 
   create(data) {
@@ -22,7 +22,7 @@ class UsersManager {
         if (!data.email || !data.password || !data.role) {
           console.log("Usuario no creado, ingrese todos los datos");
         } else {
-          UsersManager.#users.push(user);
+         UserManager.#users.push(user);
 
           console.log("usuario creado");
         }
@@ -34,7 +34,8 @@ class UsersManager {
 
   async read() {
     try {
-      let users = UsersManager.#users;
+      let users = UserManager.#users;
+
       if (!users) {
         const error = new Error("No hay usuarios");
         console.log(error);
@@ -51,7 +52,7 @@ class UsersManager {
   // para probar los metodos readOne y destroy usamos el mail
   readOne(email) {
     try {
-      let users = UsersManager.#users;
+      let users = UserManager.#users;
       let encontrado = users.find((each) => each.email === email);
       if (!encontrado) {
         const error = new Error("No hay usuario con ese email");
@@ -66,13 +67,13 @@ class UsersManager {
 
   destroy(email) {
     try {
-      const usuariosFiltrados = UsersManager.#users.filter(
+      const usuariosFiltrados = UserManager.#users.filter(
         (each) => each.email !== email
       );
-      if (usuariosFiltrados === UsersManager.#users) {
+      if (usuariosFiltrados === UserManager.#users) {
         throw new Error("Usuario no existente");
       } else {
-        UsersManager.#users = usuariosFiltrados;
+       UserManager.#users = usuariosFiltrados;
       }
     } catch (error) {
       throw error;
@@ -81,7 +82,7 @@ class UsersManager {
 }
 
 function testCreate() {
-  const gestorDeUsuarios = new UsersManager();
+  const gestorDeUsuarios = new (UserManager);
   gestorDeUsuarios.create({
     photo: "user.png",
     email: "gabriel@gmail.com",
@@ -111,18 +112,18 @@ function testCreate() {
   });
 }
 
-function testRead() {
-  const gestorDeUsuarios = new UsersManager();
-  console.log(gestorDeUsuarios.read());
+function testRead(role) {
+  const gestorDeUsuarios = new (UserManager);
+  console.log(gestorDeUsuarios.read(role));
 }
 
 function testReadOne(username) {
-  const gestorDeUsuarios = new UsersManager();
+  const gestorDeUsuarios = new (UserManager);
   console.log(gestorDeUsuarios.readOne(username));
 }
 
 function testDestroy(username) {
-  const gestorDeUsuarios = new UsersManager();
+  const gestorDeUsuarios = new (UserManager);
   gestorDeUsuarios.destroy(username);
 }
 
