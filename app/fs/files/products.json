@@ -8,6 +8,14 @@
     "stock": 20
   },
   {
+    "id": "13a42bc52474fc800c09c132",
+    "title": "ojotas",
+    "photo": "ojotas.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 100
+  },
+  {
     "id": "bd941c461592143a7e09d32c",
     "title": "zapatos",
     "photo": "zapatilla.png",
@@ -35,7 +43,7 @@
     "id": "b2467b51b9b92642afb2c0cb",
     "title": "remera",
     "photo": "remera.png",
-    "category": "Casual",
+    "category": "casual",
     "price": 90,
     "stock": 500
   },
@@ -59,7 +67,7 @@
     "id": "62ee343fafdba1d1c15a962f",
     "title": "gorra",
     "photo": "gorra.png",
-    "category": "Casual",
+    "category": "casual",
     "price": 70,
     "stock": 300
   },
@@ -72,7 +80,7 @@
     "stock": 300
   },
   {
-    "id": "6d059e6cc1853ebd34993dda",
+    "id": "f8c5469f3afb5a3e71704d09",
     "title": "zapatilla",
     "photo": "zapatilla.png",
     "category": "calzado",
@@ -80,7 +88,7 @@
     "stock": 20
   },
   {
-    "id": "3e26d5eba38796a232e81c1f",
+    "id": "0b733cbe1f6679e0cdb84e5a",
     "title": "ojotas",
     "photo": "ojotas.png",
     "category": "calzado",
@@ -88,7 +96,7 @@
     "stock": 100
   },
   {
-    "id": "5072b4e9b0455f5036c4f750",
+    "id": "c17d67ed6174c5bf3123ee32",
     "title": "zapatos",
     "photo": "zapatilla.png",
     "category": "calzado",
@@ -96,7 +104,7 @@
     "stock": 30
   },
   {
-    "id": "f1b45d904341484d9a822917",
+    "id": "04aa094fd1265e605bd3c25d",
     "title": "sandalias",
     "photo": "sandalias.png",
     "category": "calzado",
@@ -104,7 +112,7 @@
     "stock": 50
   },
   {
-    "id": "733cb018a1f68e7c223cd77a",
+    "id": "98f004f18201d61c868cf770",
     "title": "remera",
     "photo": "remera.png",
     "category": "Deportivo",
@@ -112,7 +120,7 @@
     "stock": 200
   },
   {
-    "id": "ad541dadf97e47a044143d04",
+    "id": "54bc7d9e0c95c7d50e6fd660",
     "title": "remera",
     "photo": "remera.png",
     "category": "Casual",
@@ -120,7 +128,7 @@
     "stock": 500
   },
   {
-    "id": "1164b94a789f91864a2defe6",
+    "id": "26bb8a3acccb808f4827249d",
     "title": "campera",
     "photo": "campera.png",
     "category": "Deportivo",
@@ -128,7 +136,7 @@
     "stock": 120
   },
   {
-    "id": "e3b5f826f914f86266c9894e",
+    "id": "2cbb5c3144ad0c95011f6992",
     "title": "campera",
     "photo": "campera.png",
     "category": "Vintage",
@@ -136,7 +144,7 @@
     "stock": 50
   },
   {
-    "id": "8d31e1bf563b4857426506a9",
+    "id": "4e57ababbf79847608164cc0",
     "title": "gorra",
     "photo": "gorra.png",
     "category": "Casual",
@@ -144,11 +152,26 @@
     "stock": 300
   },
   {
-    "id": "d9e532f9292a13b8f2e8f5a8",
+    "id": "edc833b5ba568d8f03880a03",
     "title": "anteojos",
     "photo": "anteojos.png",
     "category": "de sol Hombres",
     "price": 70,
     "stock": 300
+  },
+  {
+    "id": "40bf3114d6974aa8aa79b452",
+    "title": "postman update",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  },
+  {
+    "id": "b2fa73232d8419c29cfef887",
+    "title": "from postman",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  },
+  {
+    "id": "0caf9b92c32e1a0f87f43526",
+    "title": "postman update 5",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
   }
 ]
