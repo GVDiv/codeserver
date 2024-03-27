@@ -111,8 +111,7 @@ async function testCreate() {
     password: "anibal123",
     role: 2,
   });
-  
-  
+
   gestorDeUsuarios.create({
     photo: "user.png",
     email: "jose@gmail.com",

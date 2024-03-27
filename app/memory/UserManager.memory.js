@@ -33,31 +33,31 @@ class UsersManager {
   }
 
   async read() {
-    try{
-    let users = UsersManager.#users;
-      if(!users){
-        const error = new Error("No hay usuarios")
-        console.log(error)
-      } else{
+    try {
+      let users = UsersManager.#users;
+      if (!users) {
+        const error = new Error("No hay usuarios");
+        console.log(error);
+      } else {
         return users;
-      }    
-  } catch (error){
-    console.log("No hay usuarios")
-    throw error
-  }
+      }
+    } catch (error) {
+      console.log("No hay usuarios");
+      throw error;
+    }
   }
 
   // con el el id de cripto, este se genera cada vez que se corre el programa
   // para probar los metodos readOne y destroy usamos el mail
   readOne(email) {
     try {
-      let users = UsersManager.#users
-      let encontrado = users.find((each) => each.email === email); 
-      if(!encontrado){
-        const error = new Error("No hay usuario con ese email")
-        console.log(error)
+      let users = UsersManager.#users;
+      let encontrado = users.find((each) => each.email === email);
+      if (!encontrado) {
+        const error = new Error("No hay usuario con ese email");
+        console.log(error);
       } else {
-        return encontrado
+        return encontrado;
       }
     } catch (error) {
       throw error;
@@ -66,43 +66,44 @@ class UsersManager {
 
   destroy(email) {
     try {
-    const usuariosFiltrados = UsersManager.#users.filter((each) => each.email !== email);
-    if(usuariosFiltrados === UsersManager.#users){
-      throw new Error("Usuario no existente")
-    }else{
-      UsersManager.#users = usuariosFiltrados;
+      const usuariosFiltrados = UsersManager.#users.filter(
+        (each) => each.email !== email
+      );
+      if (usuariosFiltrados === UsersManager.#users) {
+        throw new Error("Usuario no existente");
+      } else {
+        UsersManager.#users = usuariosFiltrados;
+      }
+    } catch (error) {
+      throw error;
     }
-  } catch (error) {
-    throw error;
-  }
   }
 }
 
- function testCreate() {
+function testCreate() {
   const gestorDeUsuarios = new UsersManager();
-   gestorDeUsuarios.create({
+  gestorDeUsuarios.create({
     photo: "user.png",
     email: "gabriel@gmail.com",
     password: "gabriel123",
     role: 1,
   });
 
-   gestorDeUsuarios.create({
+  gestorDeUsuarios.create({
     photo: "user.png",
     email: "sabrina@gmail.com",
     password: "sabrina123",
     role: 2,
   });
 
-   gestorDeUsuarios.create({
+  gestorDeUsuarios.create({
     photo: "user.png",
     email: "anibal@gmail.com",
     password: "anibal123",
     role: 2,
   });
-  
-  
-   gestorDeUsuarios.create({
+
+  gestorDeUsuarios.create({
     photo: "user.png",
     email: "jose@gmail.com",
     password: "jose123",
@@ -110,27 +111,27 @@ class UsersManager {
   });
 }
 
- function testRead() {
+function testRead() {
   const gestorDeUsuarios = new UsersManager();
   console.log(gestorDeUsuarios.read());
 }
 
- function testReadOne(username) {
+function testReadOne(username) {
   const gestorDeUsuarios = new UsersManager();
   console.log(gestorDeUsuarios.readOne(username));
 }
 
- function testDestroy(username) {
+function testDestroy(username) {
   const gestorDeUsuarios = new UsersManager();
   gestorDeUsuarios.destroy(username);
 }
 
-function run (){
-testCreate()  //exito
-testRead()    //exito
-testReadOne("jose@gmail.com") // exito
-testDestroy("anibal@gmail.com") // exito
-testRead()  
+function run() {
+  testCreate(); //exito
+  testRead(); //exito
+  testReadOne("jose@gmail.com"); // exito
+  testDestroy("anibal@gmail.com"); // exito
+  testRead();
 }
 
-run()
+run();
