@@ -16,6 +16,14 @@
     "stock": 100
   },
   {
+    "id": "13a42bc52474fc800c09c132",
+    "title": "ojotas",
+    "photo": "ojotas.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 100
+  },
+  {
     "id": "bd941c461592143a7e09d32c",
     "title": "zapatos",
     "photo": "zapatilla.png",
@@ -27,7 +35,7 @@
     "id": "dd22f60ee210e78d4d38c1e6",
     "title": "sandalias",
     "photo": "sandalias.png",
-    "category": "calzado",
+    "category": "desde postman",
     "price": 90,
     "stock": 50
   },
