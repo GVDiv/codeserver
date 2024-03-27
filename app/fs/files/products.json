@@ -16,6 +16,14 @@
     "stock": 100
   },
   {
+    "id": "13a42bc52474fc800c09c132",
+    "title": "ojotas",
+    "photo": "ojotas.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 100
+  },
+  {
     "id": "bd941c461592143a7e09d32c",
     "title": "zapatos",
     "photo": "zapatilla.png",
@@ -78,6 +86,14 @@
     "category": "de sol Hombres",
     "price": 70,
     "stock": 300
+  },
+  {
+    "id": "f8c5469f3afb5a3e71704d09",
+    "title": "zapatilla",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 20
   },
   {
     "id": "0b733cbe1f6679e0cdb84e5a",
@@ -164,11 +180,6 @@
   {
     "id": "0caf9b92c32e1a0f87f43526",
     "title": "postman update 5",
-    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
-  },
-  {
-    "id": "c90581ebc8e98dca32ea34f5",
-    "title": "creado desde postman",
     "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
   }
 ]
