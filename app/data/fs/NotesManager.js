@@ -2,7 +2,7 @@ import fs from "fs";
 import crypto from "crypto";
 class NotesManager {
   constructor() {
-    this.path = "./app/fs/files/notes.json";
+    this.path = "./app/data/fs/files/notes.json";
     this.init();
   }
   init() {

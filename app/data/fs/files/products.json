@@ -1,13 +1,5 @@
 [
   {
-    "id": "f8e4638c175f0c8cfc6dbf9d",
-    "title": "zapatilla",
-    "photo": "zapatilla.png",
-    "category": "calzado",
-    "price": 100,
-    "stock": 20
-  },
-  {
     "id": "13a42bc52474fc800c09c132",
     "title": "ojotas",
     "photo": "ojotas.png",
@@ -96,14 +88,6 @@
     "stock": 20
   },
   {
-    "id": "0b733cbe1f6679e0cdb84e5a",
-    "title": "ojotas",
-    "photo": "ojotas.png",
-    "category": "calzado",
-    "price": 90,
-    "stock": 100
-  },
-  {
     "id": "c17d67ed6174c5bf3123ee32",
     "title": "zapatos",
     "photo": "zapatilla.png",
@@ -181,5 +165,22 @@
     "id": "0caf9b92c32e1a0f87f43526",
     "title": "postman update 5",
     "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  },
+  {
+    "id": "bf64ca077fe1073cef5f44e8",
+    "title": "creado desde postman router",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  },
+  {
+    "id": "97e69af8d2af07c3636bafc9",
+    "title": "modificado desde postman",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  },
+  {
+    "id": "4b8f11750075b52031520753",
+    "title": "product test",
+    "photo": "photo.png",
+    "price": 1000,
+    "stock": 1000
   }
 ]

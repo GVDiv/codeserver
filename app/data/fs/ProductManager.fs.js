@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class ProductManager {
   constructor() {
-    this.path = "./app/fs/files/products.json";
+    this.path = "./app/data/fs/files/products.json";
     this.init();
   }
   init() {

@@ -1,18 +1,24 @@
 import express, { json } from "express";
-import notesManager from "./app/fs/NotesManager.js";
-import productManager from "./app/fs/ProductManager.fs.js";
+import notesManager from "./app/data/fs/NotesManager.js";
+import indexRouter from "./app/router/index.router.js";
+import errorHandler from "./app/middlewares/errorHandler.js";
+import pathHanddler from "./app/middlewares/pathHanddler.mid.js";
 
 //SERVER
 const server = express();
 const port = 8080;
 const ready = () => console.log("server ready on port " + port);
 server.listen(port, ready);
-
 //MIDLEWARES
-server.use(express.urlencoded({ extended: true }));
 //OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
 server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 //LEE Y TRANSFORMA A FORMATO JSON
+
+//ENDPOINTS
+server.use("/", indexRouter);
+server.use(errorHandler);
+server.use(pathHanddler);
 
 //ROUTER
 server.get("/", async (requerimientos, respuesta) => {
@@ -28,115 +34,6 @@ server.get("/", async (requerimientos, respuesta) => {
       .json({ response: "CODER API ERROR", success: false });
   }
 });
-//ROUTER readALL PRODUCTS CON FILTRO POR QUERY OPCIONAL
-server.get("/api/products", async (req, res) => {
-  try {
-    const { category } = req.query;
-    const allProducts = await productManager.read(category);
-    if (allProducts) {
-      return res.status(200).json({
-        response: allProducts,
-        category,
-        success: true,
-        statusCode: 200,
-      });
-    } else {
-      const error = new Error("There are no products");
-      error.status = 404;
-      throw error;
-    }
-  } catch (error) {
-    console.log(error);
-    return res.status(error.status || 404).json({
-      response: error.message,
-      success: false,
-      statusCode: error.status || 404,
-    });
-  }
-});
-//ROUTER readID PRODUCT
-server.get("/api/products/:nid", async (req, res) => {
-  try {
-    const { nid } = req.params;
-    const one = await productManager.readOne(nid);
-    if (one) {
-      return res.status(200).json({
-        response: one,
-        success: true,
-        statusCode: 200,
-      });
-    } else {
-      const error = new Error("Product Not found");
-      error.statusCode = 404;
-      throw error;
-    }
-  } catch (error) {
-    console.log(error);
-    //const statusCode = error.statusCode || 500;
-    return res.status(error.status || 404).json({
-      response: error.message,
-      success: false,
-      statusCode: error.status || 404,
-    });
-  }
-});
-
-//METODO POST
-const create = async (req, res) => {
-  try {
-    const data = req.body;
-    const one = await productManager.create(data);
-    return res.json({
-      statusCode: 201,
-      message: "created id: " + one.id,
-    });
-  } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "api error",
-    });
-  }
-};
-
-//METODO UPDATE
-const update = async (req, res) => {
-  try {
-    const { pid } = req.params;
-    const data = req.body;
-    const one = await productManager.update(pid, data);
-    return res.json({
-      statusCode: 200,
-      message: "update id: " + one.id,
-    });
-  } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "api error",
-    });
-  }
-};
-
-//METODO DESTROY
-const destroy = async (req, res) => {
-  try {
-    const { pid } = req.params
-    const one = await productManager.destroy(pid)
-    return res.json({
-      statusCode: 200,
-      message:`Product Removed`,
-      response:one
-    })
-  } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "Api error",
-    });
-  }
-};
-
-server.post("/api/products", create);
-server.put("/api/products/:pid", update);
-server.delete("/api/products/:pid", destroy);
 
 /*-------------- NOTES ---------------- */
 
