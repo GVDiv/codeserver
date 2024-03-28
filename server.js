@@ -1,8 +1,12 @@
 import express, { json } from "express";
+import morgan from "morgan";
+import { engine } from "express-handlebars";
+
 import notesManager from "./app/data/fs/NotesManager.js";
 import indexRouter from "./app/router/index.router.js";
 import errorHandler from "./app/middlewares/errorHandler.js";
 import pathHanddler from "./app/middlewares/pathHanddler.mid.js";
+import __dirname from "./utils.js";
 
 //SERVER
 const server = express();
@@ -13,14 +17,19 @@ server.listen(port, ready);
 //OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(morgan("dev"));
 //LEE Y TRANSFORMA A FORMATO JSON
-
-//ENDPOINTS
+//ROUTER
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHanddler);
+//MOTOR DE PLANTILLAS
+server.engine("handlebars", engine());
+server.set("view engine", "handlebars");
+server.set("views", __dirname + "/app/views");
 
-//ROUTER
+/*-------------- NOTES ---------------- */
+
 server.get("/", async (requerimientos, respuesta) => {
   try {
     return respuesta.status(200).json({
@@ -34,8 +43,6 @@ server.get("/", async (requerimientos, respuesta) => {
       .json({ response: "CODER API ERROR", success: false });
   }
 });
-
-/*-------------- NOTES ---------------- */
 
 //READ NOTES CON FILTRO QUERY
 server.get("/api/notes", async (req, res) => {
