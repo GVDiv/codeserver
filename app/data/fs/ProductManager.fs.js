@@ -28,7 +28,7 @@ class ProductManager {
           title: data.title,
           photo:
             data.photo ||
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.pngtree.com%2Ffreepng%2Ferror-404-glitch-effect_6033747.html&psig=AOvVaw27LRmcCtMYAOwFntlSYJi0&ust=1711778001365000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMjx1KPkmIUDFQAAAAAdAAAAABAJ",
+            "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
           category: data.category,
           price: data.price,
           stock: data.stock,

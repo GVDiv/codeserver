@@ -1,10 +1,16 @@
-<h1 class="bg-secondary-subtle p-2 text-center">Products</h1>
-<div class="container">
+<h1 class="bg-warning-subtle p-2 text-center display-5">Products</h1>
+<div class="container pt-4">
   <div class="row">
     {{#each products}}
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="../../images/404.jpg" class="card-img-top" alt="..." />
+          {{#if this.photo}}
+          <img src={{this.photo}} class="card-img-top" alt="..."/>
+          {{else}}
+          <p>
+            Not Found
+          </p>
+          {{/if}}
           <div class="card-body">
             <h5 class="card-title">{{this.title}}</h5>
             <p class="card-text">Some quick example text to build on the card
@@ -12,8 +18,8 @@
             <div class="d-grid gap-2 col-6 mx-auto">
               <a
                 href="products/{{this.id}}"
-                class="btn btn-light"
-              >Go detail</a>
+                class="btn btn-outline-info"
+              >More details</a>
             </div>
           </div>
         </div>
