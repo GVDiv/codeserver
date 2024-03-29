@@ -1,12 +1,24 @@
 
-<div class="ps-2 text-center">
-    <h3 class="text-center">{{product.title}}</h3>
-    <p>Details of Products</p>
-    <ul class="list-style-type: none">
-        <li>ID: {{product.id}}</li>
-        <li>Photo: {{product.photo}}</li>
-        <li>Category: {{product.category}}</li>
-        <li>Price: {{product.price}}</li>
-        <li>Stock: {{product.stock}}</li>
-    </ul>
+<h1 class="bg-secondary-subtle p-2 text-center">Details of Products</h1>
+<div class="container">
+    
+{{#if product.id}}
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          {{product.title}}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: {{product.id}}</li>
+          <li class="list-group-item">Category: {{product.category}}</li>
+          <li class="list-group-item">Price: {{product.price}}</li>
+          <li class="list-group-item">Stock: {{product.stock}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+{{else}}
+    <h1>Not Found</h1>
+{{/if}}

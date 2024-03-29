@@ -1,5 +1,18 @@
-<h1>Products</h1>
-{{#each products}}
-    <p class="pt-3 ps-3">{{this.title}} - <a href="products/{{this.id}}">detail</a>
-     </p>
-{{/each}}
+<h1 class="bg-secondary-subtle p-2 text-center">Products</h1>
+<div class="container">
+  <div class="row">
+    {{#each products}}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{{this.photo}}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">Some quick example text to build on the card
+              title and make up the bulk of the card's content.</p>
+            <a href="products/{{this.id}}" class="btn btn-primary">Go detail</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
