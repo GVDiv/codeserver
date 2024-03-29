@@ -182,5 +182,12 @@
     "photo": "photo.png",
     "price": 1000,
     "stock": 1000
+  },
+  {
+    "id": "ff1eab99bce01c354009fb4c",
+    "title": "product test",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.pngtree.com%2Ffreepng%2Ferror-404-glitch-effect_6033747.html&psig=AOvVaw27LRmcCtMYAOwFntlSYJi0&ust=1711778001365000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMjx1KPkmIUDFQAAAAAdAAAAABAJ",
+    "price": 1000,
+    "stock": 1000
   }
 ]

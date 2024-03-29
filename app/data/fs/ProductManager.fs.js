@@ -28,7 +28,7 @@ class ProductManager {
           title: data.title,
           photo:
             data.photo ||
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ",
+            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.pngtree.com%2Ffreepng%2Ferror-404-glitch-effect_6033747.html&psig=AOvVaw27LRmcCtMYAOwFntlSYJi0&ust=1711778001365000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMjx1KPkmIUDFQAAAAAdAAAAABAJ",
           category: data.category,
           price: data.price,
           stock: data.stock,
