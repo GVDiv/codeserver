@@ -6,7 +6,7 @@ const productsRouter = Router();
 productsRouter.get("/", async (req, res, next) => {
   try {
     const products = await productManager.read();
-    return res.render("products", { products });
+    return res.render("products", { products, title: "Products" });
   } catch (error) {
     return next(error);
   }
@@ -16,7 +16,7 @@ productsRouter.get("/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
     const one = await productManager.readOne(pid);
-    return res.render("details", { product: one });
+    return res.render("details", { product: one, title: "Detail" });
   } catch (error) {
     return next(error);
   }
