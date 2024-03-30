@@ -150,5 +150,166 @@
     "category": "accesorio",
     "price": 70,
     "stock": 300
+  },
+  {
+    "id": "4bec22c38fb9d9f2e2990465",
+    "title": "lentes Ray-Ban",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 50
+  },
+  {
+    "id": "a6dd747deaea8487ef28959c",
+    "title": "gorra Nike",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "id": "eff3b65e0f359b1a57d474b6",
+    "title": "gorra Adidas",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "id": "c42cd1d8749ab7a8b150bef8",
+    "title": "gorra Stone",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "id": "758f01f26e867db307a8907d",
+    "title": "gorra Puma",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "id": "a86a3b985423f546f30fc804",
+    "title": "remera Puma Red",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "id": "0fc3b50037f9a1a1babe1271",
+    "title": "remera Adidas StarWars Luke",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "id": "ea1d11ef84d7c52e9edd5228",
+    "title": "remera Los Simpsons Homero",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "id": "168de2aeb829d16dc0ef2f88",
+    "title": "jean Adidas Black",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 100,
+    "stock": 40
+  },
+  {
+    "id": "8658ef645f21b419b773973f",
+    "title": "jean Adidas",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "057ac078853c914f7aa1984c",
+    "title": "jean Levis Casual",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "3407e9e25c802722d3883392",
+    "title": "bermuda Levis Casual",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "86a64b78b10e71b2c349998c",
+    "title": "pantalon Nike Deportivo",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "451137f8c16fc941da0e1b10",
+    "title": "pantalon Nike",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "f3bc92c2bea4f1c3749c4a18",
+    "title": "jean Nike",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "79ba82924e86f05758479b83",
+    "title": "pantalon Puma deportivo",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "17163abd83077225c4dc3e17",
+    "title": "pantalon Puma",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "44cda101e1b147bcf4fe0e15",
+    "title": "campera Puma Independiente",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "f4cbfb0701ab244112c009fe",
+    "title": "remera Puma Independiente",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "1b12ff1c95f6e8b373c95427",
+    "title": "pantalon Puma Independiente",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "fba6549fff76446225361f1f",
+    "title": "pantalon Adidas River Plate",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "7a5bfc5becfb65b75bf0c6cc",
+    "title": "remera Adidas River Plate",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
+  },
+  {
+    "id": "0dcc8dcaaf5883a6b678b173",
+    "title": "campera Adidas River Plate",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": 120,
+    "stock": 40
   }
 ]
