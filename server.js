@@ -14,11 +14,10 @@ const port = 8080;
 const ready = () => console.log("server ready on port " + port);
 server.listen(port, ready);
 //MIDLEWARES
-//OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
-server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
+server.use(express.json()); //LEE Y TRANSFORMA A FORMATO JSON
+server.use(express.urlencoded({ extended: true }));//OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
 server.use(morgan("dev"));
-//LEE Y TRANSFORMA A FORMATO JSON
+
 //ROUTER
 server.use("/", indexRouter);
 server.use(errorHandler);
