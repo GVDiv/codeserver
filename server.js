@@ -43,7 +43,7 @@ server.get("/", async (requerimientos, respuesta) => {
   }
 });
 
-//READ NOTES CON FILTRO QUERY
+//READ ALLNOTES/QUERY OPCIONAL 
 server.get("/api/notes", async (req, res) => {
   try {
     const { category } = req.query;
@@ -68,7 +68,7 @@ server.get("/api/notes", async (req, res) => {
   }
 });
 
-//1 PARAMETRO
+//READONE ID NOTE
 server.get("/api/notes/:nid", async (req, res) => {
   try {
     const { nid } = req.params;
@@ -92,7 +92,7 @@ server.get("/api/notes/:nid", async (req, res) => {
   }
 });
 
-//2 PARAMETROS
+//READONE 2 PARAMETROS
 server.get("/api/notes/:text/:category", async (req, res) => {
   try {
     const { text, category } = req.params;
