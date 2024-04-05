@@ -1,0 +1,50 @@
+[
+  {
+    "id": "37c9d7a1c59a2d064790e166",
+    "category": "done",
+    "text": "mi primera nota",
+    "date": "2024-03-13T18:49:07.490Z"
+  },
+  {
+    "id": "9dab5f4b50c1d83de0152c7b",
+    "text": "miprimeranota",
+    "category": "done",
+    "date": "2024-03-19T21:55:28.051Z"
+  },
+  {
+    "id": "59e34f6150291c5913b1dffe",
+    "text": "miprimeranota",
+    "category": "done",
+    "date": "2024-03-19T21:56:14.999Z"
+  },
+  {
+    "id": "cc95f52a2ee0f023c4aca1a7",
+    "text": "segunda nota",
+    "category": "to do",
+    "date": "2024-03-19T23:17:59.661Z"
+  },
+  {
+    "id": "aa6e8fc18f03b1b81bc6eb96",
+    "text": "segunda nota",
+    "category": "to do",
+    "date": "2024-03-19T23:18:10.146Z"
+  },
+  {
+    "id": "958c5f14dc813d56e48a39ec",
+    "text": "tercera nota",
+    "category": "to do",
+    "date": "2024-03-19T23:18:24.467Z"
+  },
+  {
+    "id": "4a9af18a03be4b7c94484917",
+    "text": "tercera nota",
+    "category": "to do",
+    "date": "2024-03-19T23:18:27.861Z"
+  },
+  {
+    "id": "e744fc49024a68dfeec4be4e",
+    "text": "tercera nota",
+    "category": "to do",
+    "date": "2024-03-20T18:27:58.694Z"
+  }
+]
