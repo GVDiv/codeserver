@@ -1,0 +1,177 @@
+[
+  {
+    "id": "f8e4638c175f0c8cfc6dbf9d",
+    "title": "zapatilla",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 20
+  },
+  {
+    "id": "13a42bc52474fc800c09c132",
+    "title": "ojotas",
+    "photo": "ojotas.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 100
+  },
+  {
+    "id": "bd941c461592143a7e09d32c",
+    "title": "zapatos",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 120,
+    "stock": 30
+  },
+  {
+    "id": "dd22f60ee210e78d4d38c1e6",
+    "title": "sandalias",
+    "photo": "sandalias.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 50
+  },
+  {
+    "id": "e5a16176cf5e465c6359bc4c",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "Deportivo",
+    "price": 120,
+    "stock": 200
+  },
+  {
+    "id": "b2467b51b9b92642afb2c0cb",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "casual",
+    "price": 90,
+    "stock": 500
+  },
+  {
+    "id": "c850301ee1f8618218153d3b",
+    "title": "campera",
+    "photo": "campera.png",
+    "category": "Deportivo",
+    "price": 190,
+    "stock": 120
+  },
+  {
+    "id": "4071a693419ef760cab9af18",
+    "title": "campera",
+    "photo": "campera.png",
+    "category": "Vintage",
+    "price": 220,
+    "stock": 50
+  },
+  {
+    "id": "62ee343fafdba1d1c15a962f",
+    "title": "gorra",
+    "photo": "gorra.png",
+    "category": "casual",
+    "price": 70,
+    "stock": 300
+  },
+  {
+    "id": "4a8f2f9ad3ff05becdf67d13",
+    "title": "anteojos",
+    "photo": "anteojos.png",
+    "category": "de sol Hombres",
+    "price": 70,
+    "stock": 300
+  },
+  {
+    "id": "f8c5469f3afb5a3e71704d09",
+    "title": "zapatilla",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 100,
+    "stock": 20
+  },
+  {
+    "id": "0b733cbe1f6679e0cdb84e5a",
+    "title": "ojotas",
+    "photo": "ojotas.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 100
+  },
+  {
+    "id": "c17d67ed6174c5bf3123ee32",
+    "title": "zapatos",
+    "photo": "zapatilla.png",
+    "category": "calzado",
+    "price": 120,
+    "stock": 30
+  },
+  {
+    "id": "04aa094fd1265e605bd3c25d",
+    "title": "sandalias",
+    "photo": "sandalias.png",
+    "category": "calzado",
+    "price": 90,
+    "stock": 50
+  },
+  {
+    "id": "98f004f18201d61c868cf770",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "Deportivo",
+    "price": 120,
+    "stock": 200
+  },
+  {
+    "id": "54bc7d9e0c95c7d50e6fd660",
+    "title": "remera",
+    "photo": "remera.png",
+    "category": "Casual",
+    "price": 90,
+    "stock": 500
+  },
+  {
+    "id": "26bb8a3acccb808f4827249d",
+    "title": "campera",
+    "photo": "campera.png",
+    "category": "Deportivo",
+    "price": 190,
+    "stock": 120
+  },
+  {
+    "id": "2cbb5c3144ad0c95011f6992",
+    "title": "campera",
+    "photo": "campera.png",
+    "category": "Vintage",
+    "price": 220,
+    "stock": 50
+  },
+  {
+    "id": "4e57ababbf79847608164cc0",
+    "title": "gorra",
+    "photo": "gorra.png",
+    "category": "Casual",
+    "price": 70,
+    "stock": 300
+  },
+  {
+    "id": "edc833b5ba568d8f03880a03",
+    "title": "anteojos",
+    "photo": "anteojos.png",
+    "category": "de sol Hombres",
+    "price": 70,
+    "stock": 300
+  },
+  {
+    "id": "40bf3114d6974aa8aa79b452",
+    "title": "postman update",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  },
+  {
+    "id": "b2fa73232d8419c29cfef887",
+    "title": "from postman",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  },
+  {
+    "id": "0caf9b92c32e1a0f87f43526",
+    "title": "postman update 5",
+    "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fcs%2Fimage-vector%2Fdefault-image-icon-vector-missing-picture-2086941550&psig=AOvVaw26CZV9A_gfpysE8kwVaif_&ust=1710695707533000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCo5KKk-YQDFQAAAAAdAAAAABAJ"
+  }
+]
