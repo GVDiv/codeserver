@@ -11,9 +11,9 @@ class ProductManager {
     if (!exists) {
       const stringData = JSON.stringify([], null, 2);
       fs.writeFileSync(this.path, stringData);
-      console.log("File Created");
+      console.log("File product created");
     } else {
-      console.log("File Already Exists");
+      console.log("File products already exists");
     }
   }
   //METODO CREATE
