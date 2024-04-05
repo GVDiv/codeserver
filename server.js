@@ -15,7 +15,11 @@ const ready = () => console.log("server ready on port " + port);
 server.listen(port, ready);
 //MIDLEWARES
 server.use(express.json()); //LEE Y TRANSFORMA A FORMATO JSON
+<<<<<<< HEAD
 server.use(express.urlencoded({ extended: true })); //OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
+=======
+server.use(express.urlencoded({ extended: true }));//OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
+>>>>>>> main
 server.use(morgan("dev"));
 
 //ROUTER
@@ -43,7 +47,11 @@ server.get("/", async (requerimientos, respuesta) => {
   }
 });
 
+<<<<<<< HEAD
 //READ ALLNOTES/QUERY OPCIONAL
+=======
+//READ ALLNOTES/QUERY OPCIONAL 
+>>>>>>> main
 server.get("/api/notes", async (req, res) => {
   try {
     const { category } = req.query;
@@ -110,3 +118,59 @@ server.get("/api/notes/:text/:category", async (req, res) => {
     });
   }
 });
+<<<<<<< HEAD
+=======
+
+/////// Usuarios
+//Read by role
+server.get("/api/users", async (req, res) => {
+  try {
+    const { role } = req.query;
+    const allUsers = await userManager.read(role);
+    if (allUsers) {
+      return res.status(200).json({
+        response: allUsers,
+        role,
+        success: true,
+        statusCode: 200,
+      });
+    } else {
+      const error = new Error("There are no users matching the criteria");
+      error.status = 404;
+      throw error;
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status || 404).json({
+      response: error.message,
+      success: false,
+      statusCode: error.status || 404,
+    });
+  }
+});
+
+server.get("/api/users/:uid", async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const one = await userManager.readOne(uid);
+    if (one) {
+      return res.status(200).json({
+        response: one,
+        success: true,
+        statusCode: 200,
+      });
+    } else {
+      const error = new Error("User Not found");
+      error.statusCode = 404;
+      throw error;
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status || 404).json({
+      response: error.message,
+      success: false,
+      statusCode: error.status || 404,
+    });
+  }
+});
+>>>>>>> main
