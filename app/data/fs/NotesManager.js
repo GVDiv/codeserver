@@ -12,7 +12,7 @@ class NotesManager {
       fs.writeFileSync(this.path, stringData);
       console.log("archivo creado");
     } else {
-      console.log("archivo ya existe");
+      console.log("File notes already exists");
     }
   }
   async create(data) {

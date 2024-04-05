@@ -1,9 +1,9 @@
-import fs  from "fs";
+import fs from "fs";
 import crypto from "crypto";
 
 class UserManager {
   constructor() {
-    this.path = "./app/fs/files/users.json";
+    this.path = "./app/data/fs/files/users.json";
     this.init();
   }
   init() {
@@ -11,12 +11,12 @@ class UserManager {
     if (!exists) {
       const stringData = JSON.stringify([], null, 2);
       fs.writeFileSync(this.path, stringData);
-      console.log("Creado");
+      console.log("File user created");
     } else {
-      console.log("Ya existia");
+      console.log("File users already exists");
     }
   }
-
+  //METODO CREATE
   async create(data) {
     try {
       if (!data) {
@@ -27,30 +27,56 @@ class UserManager {
           id: crypto.randomBytes(12).toString("hex"),
           photo:
             data.photo ||
-            "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
+            "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1",
           email: data.email,
           password: data.password,
           role: data.role,
         };
-
-        if (!data.email || !data.password || !data.role) {
-          console.log("Usuario no creado, ingrese todos los datos");
-        } else {
-          let users = await fs.promises.readFile(this.path, "utf-8");
-          users = JSON.parse(users);
-          users.push(user);
-
-          console.log("usuario creado");
-          users = JSON.stringify(users, null, 2);
-          await fs.promises.writeFile(this.path, users);
-        }
+        let users = await fs.promises.readFile(this.path, "utf-8");
+        users = JSON.parse(users);
+        users.push(user);
+        users = JSON.stringify(users, null, 2);
+        await fs.promises.writeFile(this.path, users);
+        console.log("User Created");
+        return user;
       }
     } catch (error) {
       throw error;
     }
   }
-
-   async read(role = "All") {
+  //METODO UPDATE
+  async update(id, data) {
+    try {
+      let one = await this.readOne(id);
+      if (!one) {
+        throw new Error("User not found");
+      } else {
+        let allUsers = await fs.promises.readFile(this.path, "utf-8");
+        if (!allUsers) {
+          throw new Error("Failed to read users file");
+        }
+        allUsers = JSON.parse(allUsers);
+        for (let prop in data) {
+          if (one.hasOwnProperty(prop)) {
+            one[prop] = data[prop];
+          }
+        }
+        const index = allUsers.findIndex((user) => user.id === id);
+        allUsers[index] = one;
+        await fs.promises.writeFile(
+          this.path,
+          JSON.stringify(allUsers, null, 2)
+        );
+        console.log(`User ${one.id} Updated`);
+        return one;
+      }
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+  //METODO READ CON FILTRO POR QUERY
+  async read(role = "All") {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
@@ -58,7 +84,7 @@ class UserManager {
         users = users.filter((each) => each.role == role);
       }
       if (users.length === 0) {
-        throw new Error("Products Not Found");
+        throw new Error("User Not Found");
       } else {
         console.log(users);
         return users;
@@ -68,7 +94,7 @@ class UserManager {
       return error;
     }
   }
-
+  //METODO READONE ID
   async readOne(id) {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
@@ -79,23 +105,27 @@ class UserManager {
       throw error;
     }
   }
-
+  //METODO DESTROY
   async destroy(id) {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
-      console.log("users" + users);
-      let filtered = users.filter((each) => each.id !== id);
-      filtered = JSON.stringify(filtered, null, 2);
-      console.log("filtered" + filtered);
-      await fs.promises.writeFile(this.path, filtered);
+      let one = users.find((each)=> each.id === id)
+      if(!one){
+        throw new Error("User not found")
+      } else {
+        let filtered = users.filter((each)=> each.id !== id)
+        filtered = JSON.stringify(filtered, null, 2)
+        await fs.promises.writeFile(this.path, filtered)
+        console.log(`User ${one.email} Removed`);
+        return one
+      }
     } catch (error) {
-      console.log("No hay usuario con ese Id");
-      throw error;
+      throw error
     }
   }
 }
-
+//CREACION DE USUARIOS
 async function testCreate() {
   const gestorDeUsuarios = new UserManager();
   await gestorDeUsuarios.create({
@@ -140,8 +170,10 @@ async function testDestroy(id) {
   const gestorDeUsuarios = new UserManager();
   gestorDeUsuarios.destroy(id);
 }
+const userManager = new UserManager();
+export default userManager;
 
 //testCreate()
-testRead(1)    //exito
+//testRead(1); //exito
 //testReadOne("2ddc7f23a6de8bf9be5bb2c4") // exito
 //testDestroy("842a21963b135fb5be141a7c") // exito

@@ -74,7 +74,7 @@ async function update (req, res, next) {
     return res.json({
       statusCode: 200,
       response:one,
-      message: "update id: " + one.id,
+      message: "update product id: " + one.id,
     });
   } catch (error) {
     return next(error)
