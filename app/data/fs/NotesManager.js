@@ -99,18 +99,3 @@ class NotesManager {
 const notesManager = new NotesManager();
 export default notesManager;
 
-/*
-async function test() {
-  try {
-    const notes = new NotesManager();
-    notes.create({ text: "mi primera nota" , category: "do"});
-    notes.read();
-    notes.readOne("");
-    notes.destroy("68f467da49666c1b4d76381c")
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-test();
-*/
