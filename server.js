@@ -110,3 +110,56 @@ server.get("/api/notes/:text/:category", async (req, res) => {
     });
   }
 });
+
+/////// Usuarios
+//Read by role
+server.get("/api/users", async (req, res) => {
+  try {
+    const { role } = req.query;
+    const allUsers = await userManager.read(role);
+    if (allUsers) {
+      return res.status(200).json({
+        response: allUsers,
+        role,
+        success: true,
+        statusCode: 200,
+      });
+    } else {
+      const error = new Error("There are no users matching the criteria");
+      error.status = 404;
+      throw error;
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status || 404).json({
+      response: error.message,
+      success: false,
+      statusCode: error.status || 404,
+    });
+  }
+});
+
+server.get("/api/users/:uid", async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const one = await userManager.readOne(uid);
+    if (one) {
+      return res.status(200).json({
+        response: one,
+        success: true,
+        statusCode: 200,
+      });
+    } else {
+      const error = new Error("User Not found");
+      error.statusCode = 404;
+      throw error;
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(error.status || 404).json({
+      response: error.message,
+      success: false,
+      statusCode: error.status || 404,
+    });
+  }
+});

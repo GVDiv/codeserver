@@ -1,6 +1,7 @@
 # codeserver
 
 -ProductManager: con el gestor de productos se puede agregar un nuevo producto al arreglo de productos, llamando al metodo create y pasandole el objeto con las propiedades title, photo, category, price y stock.
+Ahora es posible filtar por category en funcion read
 
 para probarlo:
 -copiar el link del repositorio de github
@@ -13,6 +14,7 @@ para probarlo:
     -----------------------------------------------------------------------------
 
 -UserManager: con el gestor de usuarios se puede agregar un nuevo usuario al arreglo de users, llamando al metodo create y pasandole el objeto con las propiedades photo, email, password y role.
+Ahora es posible filtar por role en funcion read
 
 para probarlo:
 -copiar el link del repositorio de github
