@@ -311,5 +311,27 @@
     "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
     "price": 120,
     "stock": 40
+  },
+  {
+    "id": "3b70888c258463edf157b2d2",
+    "title": "socketItem",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": "1000",
+    "stock": "1000"
+  },
+  {
+    "id": "36282d188d3e78ae5fd1048c",
+    "title": "notebook",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": "1000",
+    "stock": "10"
+  },
+  {
+    "id": "bd51ac83844dcc42721e70c5",
+    "title": "notebook asus",
+    "photo": "https://tiendaexo.com/media/catalog/product/7/0/700x500_tienda-notebook-exo-smart-t--r-b-win11h-nov23-01.png?quality=80&bg-color=255,255,255&fit=bounds&height=500&width=700&canvas=700:500",
+    "category": "tecnologia",
+    "price": "1000",
+    "stock": "10"
   }
 ]

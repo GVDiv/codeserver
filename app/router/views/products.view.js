@@ -21,4 +21,16 @@ productsRouter.get("/:pid", async (req, res, next) => {
     return next(error);
   }
 });
+/** 
+ * //VISTA DE NUEVO PRODUCTO
+productsRouter.get("/", async (req, res, next) => {
+  try {
+    const products = await productManager.read();
+    return res.render("products", { products, title: "Products" });
+  } catch (error) {
+    return next(error);
+  }
+});
+*/
+
 export default productsRouter;

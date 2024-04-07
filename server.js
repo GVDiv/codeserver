@@ -1,9 +1,12 @@
 import express, { json } from "express";
+import { createServer } from "http";
+import { Server } from "socket.io";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
 
 import notesManager from "./app/data/fs/NotesManager.js";
 import indexRouter from "./app/router/index.router.js";
+import socketCb from "./app/router/index.socket.js"
 import errorHandler from "./app/middlewares/errorHandler.js";
 import pathHanddler from "./app/middlewares/pathHanddler.mid.js";
 import __dirname from "./utils.js";
@@ -12,7 +15,13 @@ import __dirname from "./utils.js";
 const server = express();
 const port = 8080;
 const ready = () => console.log("server ready on port " + port);
-server.listen(port, ready);
+//CREO UN SERVIDOR DE NODE, CON LAS CONFIGURACIONES DEL SERVIDOR DE EXPRESS
+const nodeServer = createServer(server);
+//CREO UN SERVIDOR TCP, CONSTRUYENDO UNA INSTANCIA DEL SERVIDOR DE SOCKET, PASANDO COMO BASE EL SERVIDOR DE NODE
+const socketServer = new Server(nodeServer);
+nodeServer.listen(port, ready);
+socketServer.on("connection", socketCb);
+
 //MIDLEWARES
 server.use(express.json()); //LEE Y TRANSFORMA A FORMATO JSON
 server.use(express.urlencoded({ extended: true })); //OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
