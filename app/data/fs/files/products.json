@@ -333,5 +333,37 @@
     "category": "tecnologia",
     "price": "1000",
     "stock": "10"
+  },
+  {
+    "id": "1513bc7d28d209437eef4f20",
+    "title": "real",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "test",
+    "price": "10",
+    "stock": "10"
+  },
+  {
+    "id": "d85daefe1726c74eef45b3fc",
+    "title": "",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "",
+    "price": "",
+    "stock": ""
+  },
+  {
+    "id": "6d8fd1be2b6084ff633ccb89",
+    "title": "",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "",
+    "price": "",
+    "stock": ""
+  },
+  {
+    "id": "9426c4cf0e0a6050287c65a3",
+    "title": "test",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "",
+    "price": "",
+    "stock": ""
   }
 ]
