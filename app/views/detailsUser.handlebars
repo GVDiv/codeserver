@@ -1,21 +1,21 @@
 
 <h1 class="bg-warning-subtle p-2 text-center display-6" style="letter-spacing: 5px; font-weight: 400;">Details of User</h1>
 <div class="container-fluid text-center">
-  {{#if user.photo}}
-    <img src={{user.photo}} class="img-fluid pb-2" alt="..." style="height: 50%; border-radius: 50%;">
+  {{#if profile.photo}}
+    <img src={{profile.photo}} class="img-fluid pb-2" alt="..." style="height: 50%; border-radius: 50%;">
   {{else}}
     <p>Not Found</p>
   {{/if}}
-{{#if user.id}}
+{{#if profile.id}}
   <div class="row justify-content-center pb-4">
     <div class="col-md-6">
       <div class="card">
         <div class="card-header bg-warning-subtle display-6" style="letter-spacing: 3px;">
-          {{user.email}}
+          {{profile.email}}
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>ID:</strong> {{user.id}}</li>
-          <li class="list-group-item"><strong>Category:</strong> {{user.role}}</li>
+          <li class="list-group-item"><strong>ID:</strong> {{profile.id}}</li>
+          <li class="list-group-item"><strong>Category:</strong> {{profile.role}}</li>
         </ul>
       </div>
     </div>

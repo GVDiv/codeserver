@@ -1,21 +1,5 @@
 [
   {
-    "id": "13a42bc52474fc800c09c132",
-    "title": "zapatilla Nike",
-    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
-    "category": "zapatos",
-    "price": 90,
-    "stock": 100
-  },
-  {
-    "id": "13a42bc52474fc800c09c132",
-    "title": "zapatilla Nike Air",
-    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
-    "category": "zapatos",
-    "price": 90,
-    "stock": 100
-  },
-  {
     "id": "bd941c461592143a7e09d32c",
     "title": "zapatilla Adidas",
     "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
@@ -365,5 +349,29 @@
     "category": "",
     "price": "",
     "stock": ""
+  },
+  {
+    "id": "fcd993332fe8d11cdd096810",
+    "title": "",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "",
+    "price": "",
+    "stock": ""
+  },
+  {
+    "id": "b917890878766f30f041bbee",
+    "title": "bolso",
+    "photo": "https://www.redmarketing.com.ar/wp-content/uploads/2014/07/bolso-viaje.png",
+    "category": "accesorio",
+    "price": "1000",
+    "stock": "10"
+  },
+  {
+    "id": "b3321b82b006ff352bb637b1",
+    "title": "mochila",
+    "photo": "https://d368r8jqz0fwvm.cloudfront.net/35534-product_lg/mochila-kelby-18-lts.jpg",
+    "category": "accesorio",
+    "price": "200",
+    "stock": "20"
   }
 ]

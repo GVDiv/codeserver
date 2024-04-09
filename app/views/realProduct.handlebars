@@ -53,9 +53,15 @@
   </div>
 </div>
   
-<section class="d-flex">
-  <article id="products" class="d-flex flex-wrap w-90 justify-content-center"></article>
-</section>
+
+<div id="products" 
+     class="container-fluid p-2 d-flex flex-wrap w-90 justify-content-center"   
+     style="overflow:scroll;
+          height:87vh;
+          background-image: url('https://images.pexels.com/photos/326333/pexels-photo-326333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+          background-size: cover;
+          filter:opacity(0.9);">
+</div>
 
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 <script>
@@ -64,7 +70,7 @@
     let template = ``
     template = data.map(each => `
       <div class="card m-2" style="width: 16rem;">
-        <img style="height: 10rem" src="${each.photo}" class="card-img-top object-fit-cover" alt="${each.id}">
+        <img style="height: 10rem" src="${each.photo}" class="card-img-top object-fit-contain" alt="${each.id}">
         <div class="card-body row">
           <p><strong>Title:</strong> ${each.title}</p>
           <span><strong>Category:</strong> ${each.category}</span>

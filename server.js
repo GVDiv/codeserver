@@ -25,6 +25,7 @@ socketServer.on("connection", socketCb);
 //MIDLEWARES
 server.use(express.json()); //LEE Y TRANSFORMA A FORMATO JSON
 server.use(express.urlencoded({ extended: true })); //OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
+server.use(express.static("public"))
 server.use(morgan("dev"));
 
 //ROUTER

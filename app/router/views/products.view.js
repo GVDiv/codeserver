@@ -11,15 +11,23 @@ productsRouter.get("/", async (req, res, next) => {
     return next(error);
   }
 });
+
 //VISTA PARA AGREGAR PRODUCTOS
 productsRouter.get("/real", async (req, res, next) => {
   try {
-    const { pid } = req.params;
-    const one = await productManager.read();
-    return res.render("realProduct", { product: one, title: "New product" });
+    return res.render("realProduct", { title: "New product" });
   } catch (error) {
     return next(error);
   }
 });
 
+productsRouter.get("/:pid", async (req, res, next) => {
+  try {
+    const { pid } = req.params;
+    const detailProduct = await productManager.readOne(pid);
+    return res.render("detailsProduct", { title: "Detail", detailProduct });
+  } catch (error) {
+    return next(error);
+  }
+});
 export default productsRouter;
