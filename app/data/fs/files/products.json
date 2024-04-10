@@ -373,5 +373,13 @@
     "category": "accesorio",
     "price": "200",
     "stock": "20"
+  },
+  {
+    "id": "edb826e1487c927d0ad154a6",
+    "title": "campera adidas firebird celeste",
+    "photo": "https://media2.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/c/a/campera-adidas-adicolor-firebird-celeste-10002ehb9431001-1.jpg",
+    "category": "abrigo",
+    "price": "300",
+    "stock": "40"
   }
 ]

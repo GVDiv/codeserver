@@ -19,5 +19,12 @@
     "email": "admin@gmail.com",
     "password": "admin123",
     "role": 0
+  },
+  {
+    "id": "e7efe7f4770248b97440c994",
+    "photo": "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1",
+    "email": "guillermo@gmail.com",
+    "password": "123321",
+    "role": 1
   }
 ]
