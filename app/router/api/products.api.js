@@ -1,5 +1,6 @@
 import { Router } from "express";
 import productManager from "../../data/fs/ProductManager.fs.js";
+import  isProduct  from "../../middlewares/isProduct.mid.js"
 
 const productsRouter = Router();
 //ROUTER readALL PRODUCTS CON FILTRO POR QUERY OPCIONAL
@@ -45,7 +46,7 @@ productsRouter.get("/:pid", async (req, res, next) => {
     return next(error)
   }
 });
-productsRouter.post("/", create);
+productsRouter.post("/", isProduct, create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 

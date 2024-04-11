@@ -381,5 +381,12 @@
     "category": "abrigo",
     "price": "300",
     "stock": "40"
+  },
+  {
+    "id": "92af9e70423e6b459b799e76",
+    "title": "Short Nike",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": "",
+    "stock": "10"
   }
 ]

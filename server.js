@@ -6,7 +6,7 @@ import { engine } from "express-handlebars";
 
 import notesManager from "./app/data/fs/NotesManager.js";
 import indexRouter from "./app/router/index.router.js";
-import socketCb from "./app/router/index.socket.js"
+import socketCb from "./app/router/index.socket.js";
 import errorHandler from "./app/middlewares/errorHandler.js";
 import pathHanddler from "./app/middlewares/pathHanddler.mid.js";
 import __dirname from "./utils.js";
@@ -25,7 +25,7 @@ socketServer.on("connection", socketCb);
 //MIDLEWARES
 server.use(express.json()); //LEE Y TRANSFORMA A FORMATO JSON
 server.use(express.urlencoded({ extended: true })); //OBLIGO A MI SERVIDOR A USAR LA FUNCION ENCARGADA DE LEER PARAMETROS
-server.use(express.static("public"))
+server.use(express.static(__dirname + "/public"));
 server.use(morgan("dev"));
 
 //ROUTER
