@@ -1,0 +1,95 @@
+
+<div class="bg-warning-subtle p-2 d-flex justify-content-between">
+  <span class="text-center display-6 m-2" style="letter-spacing: 3px; font-size:2rem">Products</span>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal" style="position:relative">
+    New product
+  </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body w-90">
+            <form class="d-flex flex-column">
+
+              <div class="form-floating mb-2">
+                <input type="text" class="form-control" name="title" id="title" placeholder="title">
+                <label for="floatingInput">title</label>
+              </div>
+
+              <div class="form-floating mb-2">
+                <input type="text" class="form-control" name="category" id="category" placeholder="category">
+                <label for="floatingInput">category</label>
+              </div>
+
+              <div class="form-floating mb-2">
+                <input type="number" class="form-control" name="price" id="price" placeholder="price">
+                <label for="floatingInput">price</label>
+              </div>
+
+              <div class="form-floating mb-2">
+                <input type="number" class="form-control" name="stock" id="stock" placeholder="stock">
+                <label for="floatingInput">stock</label>
+              </div>
+
+              <div class="form-floating mb-2">
+                <input type="text" class="form-control" name="photo" id="photo" placeholder="photo">
+                <label for="floatingInput">photo</label>
+              </div>
+            </form>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <input class="btn btn-primary m-2" type="button" value="Submit" id="register" data-bs-dismiss="modal">
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+<div id="products" 
+     class="container-fluid p-2 d-flex flex-wrap w-90 justify-content-center"   
+     style="overflow:scroll;
+          height:87vh;
+          background-image: url('https://images.pexels.com/photos/326333/pexels-photo-326333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+          background-size: cover;
+          filter:opacity(0.9);">
+</div>
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  socket.on("products", data => {
+    let template = ``
+    template = data.map(each => `
+      <div class="card m-2" style="width: 16rem;">
+        <img style="height: 10rem" src="${each.photo}" class="card-img-top object-fit-contain" alt="${each.id}">
+        <div class="card-body row">
+          <p><strong>Title:</strong> ${each.title}</p>
+          <span><strong>Category:</strong> ${each.category}</span>
+          <span><strong>Id:</strong> ${each.id}</span>
+          <span><strong>Price:</strong> ${each.price}</span>
+          <span><strong>Stock:</strong> ${each.stock}</span>
+        </div>
+      </div>
+      `).join("")
+    document.querySelector("#products").innerHTML = template
+  })
+  document.querySelector("#register").addEventListener("click", (event)=> {
+    const title = document.querySelector("#title").value
+    const category = document.querySelector("#category").value
+    const price = document.querySelector("#price").value
+    const stock = document.querySelector("#stock").value
+    const photo = document.querySelector("#photo").value
+    console.log({title,category,price,stock,photo})
+    socket.emit("new product", {title,category,price,stock,photo})
+  })
+</script>
+

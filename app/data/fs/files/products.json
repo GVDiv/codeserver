@@ -1,21 +1,5 @@
 [
   {
-    "id": "13a42bc52474fc800c09c132",
-    "title": "zapatilla Nike",
-    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
-    "category": "zapatos",
-    "price": 90,
-    "stock": 100
-  },
-  {
-    "id": "13a42bc52474fc800c09c132",
-    "title": "zapatilla Nike Air",
-    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
-    "category": "zapatos",
-    "price": 90,
-    "stock": 100
-  },
-  {
     "id": "bd941c461592143a7e09d32c",
     "title": "zapatilla Adidas",
     "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
@@ -311,5 +295,98 @@
     "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
     "price": 120,
     "stock": 40
+  },
+  {
+    "id": "3b70888c258463edf157b2d2",
+    "title": "socketItem",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": "1000",
+    "stock": "1000"
+  },
+  {
+    "id": "36282d188d3e78ae5fd1048c",
+    "title": "notebook",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": "1000",
+    "stock": "10"
+  },
+  {
+    "id": "bd51ac83844dcc42721e70c5",
+    "title": "notebook asus",
+    "photo": "https://tiendaexo.com/media/catalog/product/7/0/700x500_tienda-notebook-exo-smart-t--r-b-win11h-nov23-01.png?quality=80&bg-color=255,255,255&fit=bounds&height=500&width=700&canvas=700:500",
+    "category": "tecnologia",
+    "price": "1000",
+    "stock": "10"
+  },
+  {
+    "id": "1513bc7d28d209437eef4f20",
+    "title": "real",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "test",
+    "price": "10",
+    "stock": "10"
+  },
+  {
+    "id": "d85daefe1726c74eef45b3fc",
+    "title": "",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "",
+    "price": "",
+    "stock": ""
+  },
+  {
+    "id": "6d8fd1be2b6084ff633ccb89",
+    "title": "",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "",
+    "price": "",
+    "stock": ""
+  },
+  {
+    "id": "9426c4cf0e0a6050287c65a3",
+    "title": "test",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "",
+    "price": "",
+    "stock": ""
+  },
+  {
+    "id": "fcd993332fe8d11cdd096810",
+    "title": "",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "category": "",
+    "price": "",
+    "stock": ""
+  },
+  {
+    "id": "b917890878766f30f041bbee",
+    "title": "bolso",
+    "photo": "https://www.redmarketing.com.ar/wp-content/uploads/2014/07/bolso-viaje.png",
+    "category": "accesorio",
+    "price": "1000",
+    "stock": "10"
+  },
+  {
+    "id": "b3321b82b006ff352bb637b1",
+    "title": "mochila",
+    "photo": "https://d368r8jqz0fwvm.cloudfront.net/35534-product_lg/mochila-kelby-18-lts.jpg",
+    "category": "accesorio",
+    "price": "200",
+    "stock": "20"
+  },
+  {
+    "id": "edb826e1487c927d0ad154a6",
+    "title": "campera adidas firebird celeste",
+    "photo": "https://media2.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/c/a/campera-adidas-adicolor-firebird-celeste-10002ehb9431001-1.jpg",
+    "category": "abrigo",
+    "price": "300",
+    "stock": "40"
+  },
+  {
+    "id": "92af9e70423e6b459b799e76",
+    "title": "Short Nike",
+    "photo": "https://png.pngtree.com/png-vector/20210227/ourlarge/pngtree-error-404-glitch-effect-png-image_2943478.jpg",
+    "price": "",
+    "stock": "10"
   }
 ]

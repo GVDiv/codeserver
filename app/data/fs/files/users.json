@@ -1,23 +1,37 @@
 [
   {
-    "id": "e9e9a1a1fcc269f85f7e6b56",
-    "photo": "https://cdn0.iconfinder.com/data/icons/man-user-human-profile-person-avatar-business/100/11B-1User_1-512.png",
+    "id": "b7e76b851a4a4ef9a7c8ab71",
+    "photo": "img/img5-min.jpg",
     "email": "gabriel@gmail.com",
-    "password": "gabriel123",
-    "role": "0"
-  },
-  {
-    "id": "136b8294809399460e5076ba",
-    "photo": "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1",
-    "email": "sabrina@gmail.com",
-    "password": "sabrina123",
+    "password": "123456",
     "role": "1"
   },
   {
-    "id": "04eb53a08981155494cd58c1",
-    "photo": "https://cdn0.iconfinder.com/data/icons/man-user-human-profile-business-person-avatar/100/05A-1User_1-512.png",
+    "id": "685630335f740a5fb6f9c147",
+    "photo": "img/img10-min.jpg",
+    "email": "sabrina@gmail.com",
+    "password": "123456",
+    "role": "1"
+  },
+  {
+    "id": "418484d90144b61af7a31f5b",
+    "photo": "img/img26-min.jpg",
+    "email": "guillermo@gmail.com",
+    "password": "123456",
+    "role": "1"
+  },
+  {
+    "id": "e5d2af1189dd23716962901e",
+    "photo": "img/img20-min.jpg",
+    "email": "micaela@gmail.com",
+    "password": "123456",
+    "role": "1"
+  },
+  {
+    "id": "c6c5c26059b2cbb2d2f6c3e1",
+    "photo": "img/images.png",
     "email": "admin@gmail.com",
-    "password": "admin123",
-    "role": 0
+    "password": "123456",
+    "role": "1"
   }
 ]

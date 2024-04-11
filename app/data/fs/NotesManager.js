@@ -51,10 +51,9 @@ class NotesManager {
         //SI NO HAY DATOS
         return null
       } else {
-        
+        console.log(all);
+        return all;
       }
-      console.log(all);
-      return all;
     } catch (error) {
       throw error;
     }

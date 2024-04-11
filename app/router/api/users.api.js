@@ -1,5 +1,7 @@
 import { Router, response } from "express";
 import userManager from "../../data/fs/UserManager.fs.js";
+import uploader from "../../middlewares/multer.mid.js";
+import isPhoto from "../../middlewares/isPhoto.js";
 
 const usersRouter = Router();
 
@@ -47,7 +49,7 @@ usersRouter.get("/:uid", async (req, res, next) => {
     return next(error);
   }
 });
-usersRouter.post("/", create);
+usersRouter.post("/", uploader.single("photo"), isPhoto, create);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
 
@@ -55,6 +57,7 @@ usersRouter.delete("/:uid", destroy);
 async function create(req, res, next) {
   try {
     const data = req.body;
+    console.log(req.file);
     const one = await userManager.create(data);
     return res.json({
       statusCode: 201,
