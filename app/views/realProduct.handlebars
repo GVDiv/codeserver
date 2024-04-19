@@ -91,5 +91,39 @@
     console.log({title,category,price,stock,photo})
     socket.emit("new product", {title,category,price,stock,photo})
   })
+
+  //Bloque de formulario
+   document.addEventListener('DOMContentLoaded', function() {
+    const titleInput = document.getElementById('title');
+    const categoryInput = document.getElementById('category');
+    const priceInput = document.getElementById('price');
+    const stockInput = document.getElementById('stock');
+    const photoInput = document.getElementById('photo');
+    const submitButton = document.getElementById('register');
+
+    function checkInputs() {
+      const titleValue = titleInput.value.trim();
+      const categoryValue = categoryInput.value.trim();
+      const priceValue = priceInput.value.trim();
+      const stockValue = stockInput.value.trim();
+      const photoValue = photoInput.value.trim();
+
+      if (titleValue !== '' && categoryValue !== '' && priceValue !== '' && stockValue !== '' && photoValue !== '') {
+        submitButton.disabled = false;
+      } else {
+        submitButton.disabled = true;
+      }
+    }
+
+    titleInput.addEventListener('input', checkInputs);
+    categoryInput.addEventListener('input', checkInputs);
+    priceInput.addEventListener('input', checkInputs);
+    stockInput.addEventListener('input', checkInputs);
+    photoInput.addEventListener('input', checkInputs);
+
+    // Deshabilitar el botón al cargar la página
+    checkInputs();
+  });
 </script>
+
 
