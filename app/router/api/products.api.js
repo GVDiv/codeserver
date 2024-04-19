@@ -1,6 +1,8 @@
 import { Router } from "express";
 import productManager from "../../data/fs/ProductManager.fs.js";
-import  isProduct  from "../../middlewares/isProduct.mid.js"
+import  isProduct  from "../../middlewares/isProduct.mid.js";
+import uploader from "../../middlewares/multer.mid.js";
+import isPhoto from "../../middlewares/isPhoto.js";
 
 const productsRouter = Router();
 //ROUTER readALL PRODUCTS CON FILTRO POR QUERY OPCIONAL
@@ -46,8 +48,8 @@ productsRouter.get("/:pid", async (req, res, next) => {
     return next(error)
   }
 });
-productsRouter.post("/", isProduct, create);
-productsRouter.put("/:pid", update);
+productsRouter.post("/", uploader.single("photo"), isPhoto, isProduct, create);
+productsRouter.put("/:pid",uploader.single("photo"), isPhoto,update);
 productsRouter.delete("/:pid", destroy);
 
 

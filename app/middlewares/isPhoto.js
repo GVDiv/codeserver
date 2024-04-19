@@ -1,7 +1,7 @@
 function isPhoto(req, res, next){
     try {
         if(req.file){
-            req.body.photo = "img/"+req.file.filename
+            req.body.photo = "/img/"+req.file.filename
         }
         return next()
     } catch (error) {
