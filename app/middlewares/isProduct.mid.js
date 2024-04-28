@@ -7,7 +7,7 @@ function isProduct(req, res, next) {
       throw err;
     }
     if (!category) {
-      req.body.category = "Not category";
+      req.body.category = "other";
     }
     return next();
   } catch (error) {
