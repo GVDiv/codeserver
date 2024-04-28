@@ -1,0 +1,14 @@
+[
+  {
+    "user_id": "gabo002",
+    "product_id": "dibujo001",
+    "quantity": 5,
+    "state": "paid"
+  },
+  {
+    "user_id": "gabo002",
+    "product_id": "dibujo001",
+    "quantity": 5,
+    "state": "paid"
+  }
+]
