@@ -168,7 +168,7 @@ async function testDestroy(){
     cartManager.destroy("munky001")
 }
 
-//testCreate()
+testCreate()
 //testRead()
 //testReadOne()
 //testDestroy()
