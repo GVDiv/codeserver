@@ -98,7 +98,7 @@
     const categoryInput = document.getElementById('category');
     const priceInput = document.getElementById('price');
     const stockInput = document.getElementById('stock');
-    const photoInput = document.getElementById('photo');
+    //const photoInput = document.getElementById('photo');
     const submitButton = document.getElementById('register');
 
     function checkInputs() {
@@ -108,7 +108,7 @@
       const stockValue = stockInput.value.trim();
       const photoValue = photoInput.value.trim();
 
-      if (titleValue !== '' && categoryValue !== '' && priceValue !== '' && stockValue !== '' && photoValue !== '') {
+      if (titleValue !== '' && categoryValue !== '' && priceValue !== '' && stockValue !== '') {
         submitButton.disabled = false;
       } else {
         submitButton.disabled = true;
@@ -119,7 +119,7 @@
     categoryInput.addEventListener('input', checkInputs);
     priceInput.addEventListener('input', checkInputs);
     stockInput.addEventListener('input', checkInputs);
-    photoInput.addEventListener('input', checkInputs);
+    //photoInput.addEventListener('input', checkInputs);
 
     // Deshabilitar el botón al cargar la página
     checkInputs();

@@ -7,6 +7,7 @@ import isPhoto from "../../middlewares/isPhoto.mid.js";
 const usersRouter = Router();
 
 /////// Usuarios
+
 //ROUTER readALL users CON FILTRO POR QUERY OPCIONAL
 usersRouter.get("/", async (req, res, next) => {
   try {
@@ -30,10 +31,10 @@ usersRouter.get("/", async (req, res, next) => {
   }
 });
 //ROUTER readID user
-usersRouter.get("/:uid", async (req, res, next) => {
+usersRouter.get("/:email", async (req, res, next) => {
   try {
-    const { uid } = req.params;
-    const one = await userManager.readOne(uid);
+    const { email } = req.params;
+    const one = await userManager.readByEmail(email);
     if (one) {
       return res.status(200).json({
         response: one,
@@ -84,7 +85,6 @@ async function update(req, res, next) {
     return next(error);
   }
 }
-
 //METODO DESTROY
 async function destroy(req, res, next) {
   try {
