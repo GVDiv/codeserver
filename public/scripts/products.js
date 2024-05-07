@@ -13,9 +13,11 @@ const template = (data) => `
   </div>
 </div>
 `
+let currentPage = 1;
+const pageSize = 10;
 
-
-fetch("/api/products/paginate")
+function loadProducts(page){
+  fetch("/api/products/paginate")
   .then((res) => res.json())
   .then((res) => {
     console.log(res);
@@ -23,6 +25,24 @@ fetch("/api/products/paginate")
     document.querySelector("#products").innerHTML = products.map(each=>template(each)).join("")
   })
   .catch((err) => console.log(err));
+}
+
+function loadPrevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    loadProducts(currentPage);
+  }
+}
+
+function loadNextPage(){
+  currentPage++;
+  loadProducts(currentPage)
+}
+
+document.getElementById("prev").addEventListener("click", loadPrevPage);
+document.getElementById("next").addEventListener("click", loadNextPage);
+
+loadProducts(currentPage);
 
   async function addToCart(pid){
     try {
