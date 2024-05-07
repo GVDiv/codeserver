@@ -87,6 +87,7 @@ async function paginate(req, res, next) {
       info: {
         page: all.page,
         totalPages: all.totalPages,
+        totalDocs: all.totalDocs,
         limit: all.limit,
         prevPage: all.prevPage,
         nextPage: all.nextPage,
