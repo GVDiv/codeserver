@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="users.html">users</a>
+              <a class="nav-link" href="login.html">login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="register.html">register</a>
@@ -51,12 +51,40 @@
       </div>
     </nav>
 
-      <h2>register</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-        impedit! Aperiam distinctio mollitia praesentium consequatur, fuga
-        impedit minus quod quas?
-      </p>
+      <h1>Register</h1>
+      <div class="login-main">
+        <form>
+          <div class="mb-3">
+            <label for="inputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="inputEmail1">
+          </div>
+          <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword">
+          </div>
+          <div class="form-check form-check-inline">
+            <label for="form-check-label" class="form-label">Role</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">0</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label for="form-check-label" class="form-label">Role</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">1</label>
+          </div>
+          
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupFile01">Photo</label>
+            <input type="file" class="form-control" id="inputGroupFile01">
+          </div>
+
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+        </form>
+      </div>
+     
 
   </body>
   <script src="./scripts/register.js"></script>

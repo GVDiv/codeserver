@@ -35,16 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="products.html"
-                data-page="products"
-                >Products</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="users.html" data-page="users">users</a>
+              <a class="nav-link" href="login.html">login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="register.html" data-page="register">register</a>
@@ -60,11 +51,23 @@
       </div>
     </nav>
 
-      <h1>Users</h1>
-      <span id="users" class="users-main"></span>
+      <h1>Login</h1>
+      <div class="login-main">
+        <form>
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="inputEmail">
+          </div>
+          <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword">
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Sing in</button>
+        </form>
+      </div>
 
   </body>
-  <script src="./scripts/users.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
