@@ -1,8 +1,21 @@
-const template = `<div class="card" style="width: 18rem;">
-<img src="..." class="card-img-top" alt="...">
-<div class="card-body">
-  <h5 class="card-title">Card title</h5>
-  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  <a href="#" class="btn btn-primary">Go somewhere</a>
+const template = (data) => `
+<div class="product-card " style="width: 18rem;">
+  <img src="${data.photo}" class="product-img" alt="...">
+  <div class="product-price-block">
+    <h5 class="product-title">${data.title}</h5>
+    <p class="product-price">$
+    ${data.price}
+    </p>
+  </div>
 </div>
-</div>`
+`
+
+
+fetch("/api/products")
+  .then((res) => res.json())
+  .then((res) => {
+    console.log(res);
+    const products = res.response
+    document.querySelector("#products").innerHTML = products.map(each=>template(each)).join("")
+  })
+  .catch((err) => console.log(err));
