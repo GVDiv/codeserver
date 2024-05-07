@@ -1,5 +1,5 @@
 const template = (data) => `
-<div class="product-card " style="width: 18rem;">
+<div class="card" style="width: 18rem;">
   <img src="${data.photo}" class="product-img" alt="...">
   <div class="product-price-block">
     <h5 class="product-title">${data.title}</h5>
@@ -32,9 +32,9 @@ function loadProducts(page) {
       updatePaginationButtons();
     })
     .catch((err) => console.log(err))
-    .finally(()=>{
+    .finally(() => {
       updatePaginationButtons();
-    })
+    });
 }
 
 function loadPrevPage() {
@@ -85,4 +85,3 @@ async function addToCart(pid) {
     console.log(error);
   }
 }
-

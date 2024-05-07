@@ -3,6 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+.card{
+  background-color: #f0f0f0;
+  color: #383838;
+  border-radius: 15px;
+  width: 250px;
+  margin: 15px;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
 .index-product {
   display: flex;
   justify-content: center;
@@ -88,9 +98,20 @@ h1{
 .detailsProduct{
   display: flex;
   justify-content: center;
+  margin-top: 3rem;
 }
 .login-main{
   display: flex;
   justify-content: center;
   margin-top: 5rem;
+}
+.img-profile{
+  width: 16rem;
+  border-radius: 50%;
+  padding: 1rem;
+}
+.info-text{
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
 }
