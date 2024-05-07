@@ -11,13 +11,15 @@ fetch(`/api/products/${uid}`)
         <div class="card" style="width: 18rem;">
             <img src="${product.photo}" class="card-img-top" alt="...">
             <div class="card-body">
-                <p class="card-text">${product.title}</p>
-                <p class="card-text">${product.category_id.category}</p>
-                <p class="card-text">${product.price}</p>
-                <p class="card-text">${product.size_id.size}</p>
-                <p class="card-text">${product.size_id.description}</p>
-                <p class="card-text">${product.stock}</p>
-                <button href="#" class="btn btn-primary" onclick="addToCart('${product._id}')">add to cart</button>
+                <p class="info-text">title: ${product.title}</p>
+                <p class="info-text">category: ${product.category_id.category}</p>
+                <p class="info-text">price: $${product.price}</p>
+                <p class="info-text">size: ${product.size_id.size}</p>
+                <p class="info-text">description: ${product.size_id.description}</p>
+                <p class="info-text">stock: ${product.stock}</p>
+                <button href="#" class="btn btn-primary" onclick="addToCart('${product._id}')">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
             </div>
         </div>
         `

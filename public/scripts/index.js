@@ -7,8 +7,12 @@ const template = (data) => `
     ${data.price}
     </p>
     <div>
-      <a href="../detailsProduct.html?id=${data._id}" class="btn btn-primary">detail</a>
-      <button href="#" class="btn btn-primary" onclick="addToCart('${data._id}')">add to cart</button>
+      <a href="./pages/detailsProduct.html?id=${data._id}" class="btn btn-primary">
+        <i class="fa-solid fa-circle-info"></i>
+      </a>
+      <button href="#" class="btn btn-primary" onclick="addToCart('${data._id}')">
+        <i class="fa-solid fa-cart-plus"></i>
+      </button>
     </div>
   </div>
 </div>

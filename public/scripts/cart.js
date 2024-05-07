@@ -7,11 +7,15 @@ const template = (data) => `
     </p>
     <p type="number" class="product-price"> quantity: ${data.quantity}</p>
     <div class="input-group mb-3">
-      <button class="btn btn-outline-secondary" onclick="updateQuantity('${data.product_id._id}')" type="button">update</button>
+      <button class="btn btn-outline-secondary" onclick="updateQuantity('${data.product_id._id}')" type="button">
+        <i class="fa-solid fa-plus"></i>
+      </button>
       <input type="number" class="form-control" id="quantityInput" min="0" value="0" >
     </div>
     <div>
-      <button class="btn btn-primary" onclick="destroy('${data._id}')">remove</button>
+      <button class="btn btn-primary" onclick="destroy('${data._id}')">
+        <i class="fa-solid fa-trash"></i>
+      </button>
     </div>
   </div>
 </div>
@@ -36,7 +40,7 @@ fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
           document.querySelector("#userCart").innerHTML = `
           <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Info</h5>
+              <h5 class="card-title">total purchase</h5>
               <p class="card-text">user: ${user.email}</p>
               <p class="card-text">total products: ${productsCount}</p>
               <a href="#" class="btn btn-primary">pay</a>
