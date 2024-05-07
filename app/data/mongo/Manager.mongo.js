@@ -58,7 +58,7 @@ class Manager {
     }
   }
 
-  async update(id) {
+  async update(id,data) {
     try {
       const one = await this.Model.findByIdAndUpdate(id, data, { new: true });
       return one;

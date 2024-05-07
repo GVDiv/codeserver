@@ -36,7 +36,7 @@ schema.pre("find", function () {
   this.populate("category_id");
 });
 schema.pre("findOne", function () {
-  this.populate("size_id");
+  this.populate("size_id category_id");
 });
 
 const Product = model(collection, schema);

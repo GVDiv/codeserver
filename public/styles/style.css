@@ -71,11 +71,21 @@
 .userCart {
   display: flex;
   padding: 1rem;
-  align-items: center;
   text-align: center;
+  height: 15rem;
 }
 h1{
   text-align: center;
   padding: 1rem;
   background: #fff8b6;
+}
+.users-main{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: center;
+}
+.detailsProduct{
+  display: flex;
+  justify-content: center;
 }

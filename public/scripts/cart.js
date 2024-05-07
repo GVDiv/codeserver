@@ -7,8 +7,8 @@ const template = (data) => `
     </p>
     <p type="number" class="product-price"> quantity: ${data.quantity}</p>
     <div class="input-group mb-3">
-      <button class="btn btn-outline-secondary" type="button" id="button-addon1">update</button>
-      <input type="text" class="form-control" placeholder="${data.quantity}" aria-label="" aria-describedby="button-addon1" onclick="update('${data._id}')">
+      <button class="btn btn-outline-secondary" onclick="updateQuantity('${data.product_id._id}')" type="button">update</button>
+      <input type="number" class="form-control" id="quantityInput" min="0" value="0" >
     </div>
     <div>
       <button class="btn btn-primary" onclick="destroy('${data._id}')">remove</button>
@@ -59,6 +59,30 @@ async function destroy(pid) {
     let response = await fetch(url, opts);
     response = await response.json();
     location.reload();
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function updateQuantity(product_id) {
+  const input = document.getElementById("quantityInput");
+  const newQuantity = parseInt(input.value) || 0; 
+  await updateCart(product_id, newQuantity);
+}
+
+async function updateCart(product_id, newQuantity) {
+  try {
+    const cartId = "66396a8c140eb76866a72897";
+    const url = `/api/carts/${cartId}/products/${product_id}`;
+    const data = { quantity: newQuantity };
+    const opts = {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    };
+    let response = await fetch(url, opts);
+    response = await response.json();
     console.log(response);
   } catch (error) {
     console.log(error);
