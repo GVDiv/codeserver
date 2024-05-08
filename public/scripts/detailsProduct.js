@@ -33,7 +33,7 @@ fetch(`/api/products/${uid}`)
             product_id: pid,
             quantity: 1,
           };
-          const url = "api/carts";
+          const url = "/api/carts";
           const opts = {
             method: "POST",
             body: JSON.stringify(product),

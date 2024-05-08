@@ -43,7 +43,12 @@ fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
               <h5 class="card-title">total purchase</h5>
               <p class="card-text">user: ${user.email}</p>
               <p class="card-text">total products: ${productsCount}</p>
-              <a href="#" class="btn btn-primary">pay</a>
+              <a href="#" class="btn btn-primary text_btn">
+                pay <i class="fa-solid fa-cash-register"></i>
+              </a>
+              <a href="#" class="btn btn-primary text_btn">
+                delete <i class="fa-solid fa-trash"></i>
+              </a>
             </div>
           </div>
           `;
@@ -87,8 +92,25 @@ async function updateCart(product_id, newQuantity) {
     };
     let response = await fetch(url, opts);
     response = await response.json();
+    location.reload();
     console.log(response);
   } catch (error) {
     console.log(error);
   }
 }
+
+fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
+  .then((res) => res.json())
+  .then((res) => {
+    const products = res.response;
+    const cartElement = document.getElementById("cart");
+    
+    if (products.length > 0) {
+      cartElement.classList.remove("cart-empty");
+      cartElement.classList.add("cart-with-products");
+    } else {
+      cartElement.classList.remove("cart-with-products");
+      cartElement.classList.add("cart-empty");
+    }
+  })
+  .catch((err) => console.log(err));

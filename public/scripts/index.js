@@ -2,11 +2,21 @@ const template = (data) => `
 <div class="card" style="width: 18rem;">
   <img src="${data.photo}" class="product-img" alt="...">
   <div class="product-price-block">
-    <h5 class="product-title">${data.title}</h5>
-    <p class="product-price">$
-    ${data.price}
-    </p>
-    <div>
+    <div 
+        style="
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          align-items: flex-start;
+      ">
+      <h5 class="product-title">${data.title}</h5>
+      <p class="product-price">$ ${data.price}</p>
+    </div>
+    <div style="
+            width: 100%;
+            display: flex;
+            justify-content: space-between
+    ">
       <a href="./pages/detailsProduct.html?id=${data._id}" class="btn btn-primary">
         <i class="fa-solid fa-circle-info"></i>
       </a>
@@ -84,8 +94,25 @@ async function addToCart(pid) {
     };
     let response = await fetch(url, opts);
     response = await response.json();
+    location.reload();
     console.log(response);
   } catch (error) {
     console.log(error);
   }
 }
+
+fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
+  .then((res) => res.json())
+  .then((res) => {
+    const products = res.response;
+    const cartElement = document.getElementById("cart");
+    
+    if (products.length > 0) {
+      cartElement.classList.remove("cart-empty");
+      cartElement.classList.add("cart-with-products");
+    } else {
+      cartElement.classList.remove("cart-with-products");
+      cartElement.classList.add("cart-empty");
+    }
+  })
+  .catch((err) => console.log(err));
