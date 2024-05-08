@@ -30,14 +30,14 @@ fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
       .map((each) => template(each))
       .join("");
 
-      fetch("/api/users/6623ec94d8ef27548f40e5a3")
-        .then((res) => res.json())
-        .then((userData) => {
-          const user = userData.response;
-          console.log(user)
-          const productsCount = products.length;
-          console.log(productsCount)
-          document.querySelector("#userCart").innerHTML = `
+    fetch("/api/users/6623ec94d8ef27548f40e5a3")
+      .then((res) => res.json())
+      .then((userData) => {
+        const user = userData.response;
+        console.log(user);
+        const productsCount = products.length;
+        console.log(productsCount);
+        document.querySelector("#userCart").innerHTML = `
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">total purchase</h5>
@@ -46,17 +46,15 @@ fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
               <a href="#" class="btn btn-primary text_btn">
                 pay <i class="fa-solid fa-cash-register"></i>
               </a>
-              <a href="#" class="btn btn-primary text_btn">
+              <button class="btn btn-primary text_btn" onclick="destroyCart()">
                 delete <i class="fa-solid fa-trash"></i>
-              </a>
+              </button>
             </div>
           </div>
           `;
-        });
+      });
   })
   .catch((err) => console.log(err));
-
-
 
 async function destroy(pid) {
   try {
@@ -74,9 +72,30 @@ async function destroy(pid) {
   }
 }
 
+async function destroyCart() {
+  try {
+    const response = await fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3");
+    const cartData = await response.json();
+    const productsCart = cartData.response;
+    await Promise.all(
+      productsCart.map(async (product) => {
+        const url = "/api/carts/" + product._id;
+        const opts = {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        };
+        await fetch(url, opts);
+      })
+    );
+    location.reload();
+  } catch (error) {
+    console.log("Error eliminando productos del carrito:", error);
+  }
+}
+
 async function updateQuantity(product_id) {
   const input = document.getElementById("quantityInput");
-  const newQuantity = parseInt(input.value) || 0; 
+  const newQuantity = parseInt(input.value) || 0;
   await updateCart(product_id, newQuantity);
 }
 
@@ -104,7 +123,7 @@ fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
   .then((res) => {
     const products = res.response;
     const cartElement = document.getElementById("cart");
-    
+
     if (products.length > 0) {
       cartElement.classList.remove("cart-empty");
       cartElement.classList.add("cart-with-products");
