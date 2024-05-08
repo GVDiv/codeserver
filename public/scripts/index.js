@@ -105,14 +105,21 @@ fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
   .then((res) => res.json())
   .then((res) => {
     const products = res.response;
+    console.log(products);
     const cartElement = document.getElementById("cart");
-    
+
     if (products.length > 0) {
       cartElement.classList.remove("cart-empty");
       cartElement.classList.add("cart-with-products");
+      
     } else {
       cartElement.classList.remove("cart-with-products");
       cartElement.classList.add("cart-empty");
     }
+    const totalProducts = products.reduce(
+      (total, product) => total + product.quantity,
+      0
+    );
+    document.getElementById("cartTotal").textContent = `${totalProducts}`;
   })
   .catch((err) => console.log(err));

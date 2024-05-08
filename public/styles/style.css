@@ -78,6 +78,17 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.cart_total{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 2px;
+    top: 3px;
+    color: #ff0119; 
+    font-size: 13px;
+    font-weight: 800;
+    font-family: 'Font Awesome 6 Brands'
+}
 .userCart {
   display: flex;
   padding: 1rem;

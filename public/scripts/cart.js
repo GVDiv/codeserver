@@ -131,5 +131,10 @@ fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
       cartElement.classList.remove("cart-with-products");
       cartElement.classList.add("cart-empty");
     }
+    const totalProducts = products.reduce(
+      (total, product) => total + product.quantity,
+      0
+    );
+    document.getElementById("cartTotal").textContent = `${totalProducts}`;
   })
   .catch((err) => console.log(err));
