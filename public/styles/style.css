@@ -13,6 +13,17 @@
   border-radius: 10px;
   box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
 }
+.card_info{
+  background-color: #f0f0f0;
+  color: #383838;
+  border-radius: 15px;
+  width: 18rem;
+  height: 420px;
+  margin: 15px;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
+}
 .index-product {
   display: flex;
   justify-content: center;
@@ -99,6 +110,8 @@ h1 {
   text-align: center;
   padding: 1rem;
   background: #fff8b6;
+  font-family: 'FontAwesome';
+  letter-spacing: 5px;
 }
 .users-main {
   display: flex;
@@ -108,8 +121,11 @@ h1 {
 }
 .detailsProduct {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   margin-top: 3rem;
+  gap: 2rem;
 }
 .login-main {
   display: flex;
@@ -121,10 +137,15 @@ h1 {
   border-radius: 50%;
   padding: 1rem;
 }
+.info_detail{
+  display: flex;
+  gap:15px
+}
 .info-text {
   font-size: 20px;
-  font-weight: 300;
-  text-align: center;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 3px;
 }
 .text_btn {
   font-family: roboto;
@@ -152,4 +173,10 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.img_container{
+  width: 30%;
+}
+.img_info{
+  width: 100%;
 }
