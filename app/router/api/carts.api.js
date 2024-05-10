@@ -2,8 +2,14 @@ import { Router, response } from "express";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
 const cartsRouter = Router();
+
+cartsRouter.get("/", read);
+cartsRouter.post("/", create);
+cartsRouter.put("/:cid", update);
+cartsRouter.delete("/:cid", destroy);
+
 //CREATE
-cartsRouter.post("/", async (req, res, next) => {
+async function create(req, res, next) {
   try {
     const data = req.body;
     const one = await cartsManager.create(data);
@@ -15,9 +21,9 @@ cartsRouter.post("/", async (req, res, next) => {
   } catch (error) {
     return next(error);
   }
-});
+}
 //READ
-cartsRouter.get("/", async (req, res, next) => {
+async function read(req, res, next) {
   try {
     const { user_id } = req.query;
     if (user_id) {
@@ -36,12 +42,13 @@ cartsRouter.get("/", async (req, res, next) => {
   } catch (error) {
     return next(error);
   }
-});
-//DESTROY
-cartsRouter.delete("/:cid", async (req, res, next) => {
+}
+//UPDATE
+async function update(req, res, next) {
   try {
     const { cid } = req.params;
-    const one = await cartsManager.destroy(cid);
+    const data = req.body;
+    const one = await cartsManager.update(cid, data);
     return res.json({
       statusCode: 200,
       response: one,
@@ -49,6 +56,20 @@ cartsRouter.delete("/:cid", async (req, res, next) => {
   } catch (error) {
     return next(error);
   }
-});
+}
+//DESTROY
+async function destroy(req, res, next) {
+  try {
+    const { cid } = req.params;
+    const one = await cartsManager.destroy(cid);
+    return res.json({
+      statusCode: 200,
+      message: `Product Removed`,
+      response: one,
+    });
+  } catch (error) {
+    return next(error);
+  }
+}
 
 export default cartsRouter;
