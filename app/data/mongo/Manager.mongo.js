@@ -11,12 +11,30 @@ class Manager {
     }
   }
 
-  async read(filter) {
+  async read(cat) {
     try {
-      const all = await this.Model.find(filter);
+      const all = await this.Model.find();
       return all;
     } catch (error) {
       throw error;
+    }
+  }
+
+  async paginate({filter, opts}) {
+    try {
+      const all = await this.Model.paginate(filter,opts);
+      return all;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async aggregate(obj) {
+    try {
+      const result = await this.Model.aggregate(obj)
+      return result
+    } catch (error) {
+      throw error
     }
   }
 
@@ -30,7 +48,17 @@ class Manager {
     }
   }
 
-  async update(id) {
+  async readByEmail(email) {
+    try {
+      //const one = await this.Model.findById(id);
+      const one = await this.Model.findOne({ email });
+      return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async update(id,data) {
     try {
       const one = await this.Model.findByIdAndUpdate(id, data, { new: true });
       return one;

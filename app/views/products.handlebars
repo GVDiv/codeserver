@@ -10,22 +10,32 @@
       <div class="col-md-4 mb-4">
         <div class="card">
           {{#if this.photo}}
-          <img src={{this.photo}} style="height: 18rem" class="card-img-top object-fit-cover" alt="..."/>
+          <img src={{this.photo}} style="height: 18rem" class="card-img-top object-fit-contain" alt="..."/>
           {{else}}
           <p>
             Not Found
           </p>
           {{/if}}
-          <div class="card-body d-flex flex-row flex-wrap justify-content-around" 
-                style="align-items: center;">
+          <div style="display: flex;
+                      flex-direction: column;
+                      text-align: center;
+                      padding: 1rem;">
             <h5 class="card-title" 
                 style="font-size: 1rem;
                        font-family: sans-serif;
                        letter-spacing: 2px;           
                        ">{{this.title}}</h5>
-              <a class="btn btn-primary" type="button" href="products/{{this.id}}">
-                detail
-              </a>
+              <div style="display: flex;
+                          flex-wrap: wrap;
+                          gap: 1rem;
+                          justify-content: flex-end;">
+                <a class="btn btn-info" type="button" href="products/{{this.id}}">
+                  detail
+                </a>
+                <a class="btn btn-primary" style="border-radius: 50%; padding: 10px;" type="button" href="#">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+              </div>
           </div>
         </div>
       </div>

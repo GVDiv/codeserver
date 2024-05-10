@@ -6,50 +6,8 @@ import isPhoto from "../../middlewares/isPhoto.mid.js";
 
 const usersRouter = Router();
 
-/////// Usuarios
-//ROUTER readALL users CON FILTRO POR QUERY OPCIONAL
-usersRouter.get("/", async (req, res, next) => {
-  try {
-    const { role } = req.query;
-    const allUsers = await userManager.read(role);
-    if (allUsers) {
-      return res.status(200).json({
-        response: allUsers,
-        role,
-        success: true,
-        statusCode: 200,
-      });
-    } else {
-      const error = new Error("There are no users");
-      error.status = 404;
-      throw error;
-    }
-  } catch (error) {
-    console.log(error);
-    return next(error);
-  }
-});
-//ROUTER readID user
-usersRouter.get("/:uid", async (req, res, next) => {
-  try {
-    const { uid } = req.params;
-    const one = await userManager.readOne(uid);
-    if (one) {
-      return res.status(200).json({
-        response: one,
-        success: true,
-        statusCode: 200,
-      });
-    } else {
-      const error = new Error("User Not found");
-      error.statusCode = 404;
-      throw error;
-    }
-  } catch (error) {
-    console.log(error);
-    return next(error);
-  }
-});
+usersRouter.get("/", read);
+usersRouter.get("/:uid", readOne);
 usersRouter.post("/", uploader.single("photo"), isPhoto, create);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
@@ -69,6 +27,47 @@ async function create(req, res, next) {
     return next(error);
   }
 }
+//READ
+async function read(req, res, next) {
+  try {
+    const { role } = req.query;
+    const all = await userManager.read(role);
+    if (all.length > 0) {
+      return res.json({
+        statusCode: 200,
+        response: all,
+        role,
+        success: true,
+      });
+    } else {
+      const error = new Error("There are no users");
+      error.status = 404;
+      throw error;
+    }
+  } catch (error) {
+    return next(error);
+  }
+}
+//READONE
+async function readOne(req, res, next) {
+  try {
+    const { uid } = req.params;
+    const one = await userManager.readOne(uid);
+    if (one) {
+      return res.status(200).json({
+        response: one,
+        success: true,
+        statusCode: 200,
+      });
+    } else {
+      const error = new Error("Not found");
+      error.statusCode = 404;
+      throw error;
+    }
+  } catch (error) {
+    return next(error);
+  }
+}
 //METODO UPDATE
 async function update(req, res, next) {
   try {
@@ -84,7 +83,6 @@ async function update(req, res, next) {
     return next(error);
   }
 }
-
 //METODO DESTROY
 async function destroy(req, res, next) {
   try {

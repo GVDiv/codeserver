@@ -1,11 +1,11 @@
 import { Router } from "express";
-import productManager from "../../data/fs/ProductManager.fs.js";
-
+//import productManager from "../../data/fs/ProductManager.fs.js";
+import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js";
 const productsRouter = Router();
 //VISTA DE PRODUCTOS
 productsRouter.get("/", async (req, res, next) => {
   try {
-    const products = await productManager.read();
+    const products = await productsManager.read();
     return res.render("products", { products, title: "Products" });
   } catch (error) {
     return next(error);
@@ -24,7 +24,7 @@ productsRouter.get("/real", async (req, res, next) => {
 productsRouter.get("/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
-    const detailProduct = await productManager.readOne(pid);
+    const detailProduct = await productsManager.readOne(pid);
     return res.render("detailsProduct", { title: "Detail", detailProduct });
   } catch (error) {
     return next(error);
