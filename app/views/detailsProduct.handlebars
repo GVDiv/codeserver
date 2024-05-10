@@ -1,23 +1,23 @@
 
 <h1 class="bg-warning-subtle p-2 text-center display-6" style="letter-spacing: 5px; font-weight: 400;">Details of Products</h1>
 <div class="container-fluid text-center">
-  {{#if product.photo}}
-    <img src={{product.photo}} class="img-fluid pb-2" alt="..." style="height: 50%">
+  {{#if detailProduct.photo}}
+    <img src=/{{detailProduct.photo}} class="img-fluid pb-2" alt="..." style="height: 50%">
   {{else}}
     <p>Not Found</p>
   {{/if}}
-{{#if product.id}}
+{{#if detailProduct.id}}
   <div class="row justify-content-center pb-4">
     <div class="col-md-6">
       <div class="card">
         <div class="card-header bg-warning-subtle display-6" style="letter-spacing: 3px;">
-          {{product.title}}
+          {{detailProduct.title}}
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>ID:</strong> {{product.id}}</li>
-          <li class="list-group-item"><strong>Category:</strong> {{product.category}}</li>
-          <li class="list-group-item"><strong>Price:</strong> {{product.price}}</li>
-          <li class="list-group-item"><strong>Stock:</strong> {{product.stock}}</li>
+          <li class="list-group-item"><strong>ID:</strong> {{detailProduct.id}}</li>
+          <li class="list-group-item"><strong>Category:</strong> {{detailProduct.category}}</li>
+          <li class="list-group-item"><strong>Price:</strong> {{detailProduct.price}}</li>
+          <li class="list-group-item"><strong>Stock:</strong> {{detailProduct.stock}}</li>
         </ul>
       </div>
     </div>

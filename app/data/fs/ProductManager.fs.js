@@ -96,7 +96,7 @@ class ProductManager {
       if (allProducts.length === 0) {
         throw new Error("Products Not Found");
       } else {
-        console.log(allProducts);
+        //console.log(allProducts);
         return allProducts;
       }
     } catch (error) {

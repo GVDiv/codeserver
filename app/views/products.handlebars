@@ -1,26 +1,41 @@
-<h1 class="bg-warning-subtle p-2 text-center display-6" style="letter-spacing: 5px; font-weight: 400;">Products</h1>
-<div class="container pt-4">
-  <div class="row">
+<span class="bg-warning-subtle p-2 text-center display-6" style="letter-spacing: 5px; font-weight: 400; display:block">Products</span>
+<div class="container-fluid p-4" 
+      style="height: 87vh;
+             background-image: url('https://images.pexels.com/photos/347139/pexels-photo-347139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+             background-size: cover;
+             filter:opacity(0.9);
+             overflow:scroll">
+  <div class="row"> 
     {{#each products}}
       <div class="col-md-4 mb-4">
         <div class="card">
           {{#if this.photo}}
-          <img src={{this.photo}} class="card-img-top" alt="..."/>
+          <img src={{this.photo}} style="height: 18rem" class="card-img-top object-fit-contain" alt="..."/>
           {{else}}
           <p>
             Not Found
           </p>
           {{/if}}
-          <div class="card-body">
-            <h5 class="card-title">{{this.title}}</h5>
-            <p class="card-text">Some quick example text to build on the card
-              title and make up the bulk of the card's content.</p>
-            <div class="d-grid gap-2 col-6 mx-auto">
-              <a
-                href="products/{{this.id}}"
-                class="btn btn-outline-info"
-              >More details</a>
-            </div>
+          <div style="display: flex;
+                      flex-direction: column;
+                      text-align: center;
+                      padding: 1rem;">
+            <h5 class="card-title" 
+                style="font-size: 1rem;
+                       font-family: sans-serif;
+                       letter-spacing: 2px;           
+                       ">{{this.title}}</h5>
+              <div style="display: flex;
+                          flex-wrap: wrap;
+                          gap: 1rem;
+                          justify-content: flex-end;">
+                <a class="btn btn-info" type="button" href="products/{{this.id}}">
+                  detail
+                </a>
+                <a class="btn btn-primary" style="border-radius: 50%; padding: 10px;" type="button" href="#">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+              </div>
           </div>
         </div>
       </div>
