@@ -21,6 +21,13 @@ const template = (data) => `
 </div>
 `;
 
+fetch("/api/sessions/online")
+  .then((res) => res.json())
+  .then((res) => {
+    const user_id = res.user_id
+    console.log(res)
+  })
+
 fetch("/api/carts?user_id=6623ec94d8ef27548f40e5a3")
   .then((res) => res.json())
   .then((res) => {
