@@ -4,6 +4,7 @@ import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 const cartsRouter = Router();
 
 cartsRouter.get("/", read);
+cartsRouter.get("/:cid", readOne);
 cartsRouter.post("/", create);
 cartsRouter.put("/:cid", update);
 cartsRouter.delete("/:cid", destroy);
@@ -39,6 +40,25 @@ async function read(req, res, next) {
     const error = new Error("Not found");
     error.statusCode = 404;
     throw error;
+  } catch (error) {
+    return next(error);
+  }
+}
+//READONE
+async function readOne(req, res, next) {
+  try {
+    const { cid } = req.params;
+    const one = await cartsManager.readOne(cid);
+    if (one) {
+      return res.json({
+        statusCode: 200,
+        response: one,
+      });
+    } else {
+      const error = new Error("Not found!");
+      error.statusCode = 404;
+      throw error;
+    }
   } catch (error) {
     return next(error);
   }

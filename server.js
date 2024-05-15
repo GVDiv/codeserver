@@ -61,7 +61,4 @@ server.use(
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHanddler);
-//MOTOR DE PLANTILLAS
-server.engine("handlebars", engine());
-server.set("view engine", "handlebars");
-server.set("views", __dirname + "/app/views");
+
