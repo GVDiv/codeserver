@@ -51,10 +51,13 @@ sessionsRouter.post(
 sessionsRouter.get("/online", async (req, res, next) => {
   try {
     if (req.session.online) {
-      return res.json({
-        statusCode: 200,
-        message: "Is online!",
-      });
+      if(req.session.user_id){
+        return res.json({
+          statusCode: 200,
+          message: "Is online!",
+          user_id: req.session.user_id
+        });
+      }
     }
     return res.json({
       statusCode: 401,

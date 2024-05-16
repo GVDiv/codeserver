@@ -1,10 +1,9 @@
-export default async function printProfile(id) {
-    try {
-        const profile = await fetch("/api/sessions/online" + id)
-        profile = await profile.json()
-        profile = profile.response
-        console.log(profile)
-    } catch (error) {
-        return next(error)
-    }
+
+export default  function printProfile(){
+     fetch("/api/sessions/online")
+    .then((res) => res.json())
+    .then((userData) => {
+        const user = userData.response;
+        console.log(user)
+    })
 }

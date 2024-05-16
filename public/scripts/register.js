@@ -35,7 +35,7 @@ document.querySelector("#register").addEventListener("click", async () => {
       confirmButtonColor: "#ff3b3c",
     });
     //si no vamos a re-dirigir hay que re-setear el formulario!
-    return location.replace("/login.html");
+    return location.replace("../pages/login.html");
   }
   return Swal.fire({
     title: response.message,
