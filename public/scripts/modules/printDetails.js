@@ -1,4 +1,4 @@
-import createMini from "./createMini.js";
+//import createMini from "./createMini.js";
 import changeSubtotal from "./changeSubtotal.js";
 import saveProduct from "./saveProduct.js";
 
@@ -6,6 +6,7 @@ export default async function printDetails(id) {
   let product = await fetch("/api/products/" + id);
   product = await product.json();
   product = product.response;
+  console.log(product)
   const detailsTemplate = `
     <section class="product-images-block">
     <div id="minis" class="product-images"></div>
@@ -59,7 +60,7 @@ export default async function printDetails(id) {
   `;
   const detailsSelector = document.querySelector("#details");
   detailsSelector.innerHTML = detailsTemplate;
-  product.images.forEach(createMini);
+  //product.images.forEach(createMini);
   document
     .querySelector(".quantity")
     .addEventListener("change", (event) => changeSubtotal(event, id));
