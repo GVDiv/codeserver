@@ -1,10 +1,12 @@
 import products from "../data/products.js";
 
 export default async function changeSubtotal(event, id) {
-  let res = await fetch("/api/products")
-  console.log(res)
+  let product = await fetch("/api/products");
+  product = await product.json();
+  product = product.response;
+  console.log(product)
   const value = event.target.value;
-  const found = products.find((each) => each.id === id);
+  const found = product.find((each) => each.id === id);
   console.log(found)
   const subtotal = found.price * value;
   const priceSelector = document.querySelector("#price");
