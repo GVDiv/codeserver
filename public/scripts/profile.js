@@ -11,19 +11,19 @@ const query = location.search;
 const params = new URLSearchParams(query);
 const id = params.get("id");
 
-  fetch("/api/sessions/online")
+  fetch("/api/sessions")
    .then((res) => res.json())
    .then((userOnline) => {
        const userOn = userOnline.response;
        console.log(userOn)
    })
 
-fetch("/api/users/6623ec94d8ef27548f40e5a3")
+fetch("/api/sessions")
   .then((res) => res.json())
   .then((userData) => {
     const user = userData.response;
     console.log(user);
-    document.querySelector("#profile").innerHTML = `
+    document.querySelector("#profile-details").innerHTML = `
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <img src="${user.photo}" class="img-profile" alt="...">
