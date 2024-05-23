@@ -2,6 +2,7 @@ class Manager {
   constructor(Model) {
     this.Model = Model;
   }
+
   async create(data) {
     try {
       const one = await this.Model.create(data);
@@ -11,9 +12,9 @@ class Manager {
     }
   }
 
-  async read(cat) {
+  async read(filter = {}) {
     try {
-      const all = await this.Model.find();
+      const all = await this.Model.find(filter); // Usar el filtro proporcionado
       return all;
     } catch (error) {
       throw error;
@@ -22,7 +23,7 @@ class Manager {
 
   async paginate({filter, opts}) {
     try {
-      const all = await this.Model.paginate(filter,opts);
+      const all = await this.Model.paginate(filter, opts);
       return all;
     } catch (error) {
       throw error;
@@ -40,7 +41,6 @@ class Manager {
 
   async readOne(id) {
     try {
-      //const one = await this.Model.findById(id);
       const one = await this.Model.findOne({ _id: id });
       return one;
     } catch (error) {
@@ -50,7 +50,6 @@ class Manager {
 
   async readByEmail(email) {
     try {
-      //const one = await this.Model.findById(id);
       const one = await this.Model.findOne({ email });
       return one;
     } catch (error) {
@@ -58,7 +57,7 @@ class Manager {
     }
   }
 
-  async update(id,data) {
+  async update(id, data) {
     try {
       const one = await this.Model.findByIdAndUpdate(id, data, { new: true });
       return one;

@@ -1,4 +1,4 @@
-import { Router, response } from "express";
+import { Router } from "express";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
 const cartsRouter = Router();
@@ -14,7 +14,7 @@ async function create(req, res, next) {
   try {
     const data = req.body;
     const user_id = req.session.user_id;
-    const one = await cartsManager.create(data, user_id);
+    const one = await cartsManager.create({ ...data, user_id }); // Asociar el carrito al usuario
     return res.json({
       statusCode: 201,
       message: "Create",
@@ -24,32 +24,44 @@ async function create(req, res, next) {
     return next(error);
   }
 }
+
 //READ
 async function read(req, res, next) {
   try {
-    const { user_id } = req.session;
+    const user_id = req.session.user_id; // Obteniendo user_id desde la sesión
+    console.log("User ID from session:", user_id); // Línea de depuración
+
     if (user_id) {
-      const all = await cartsManager.read({ user_id });
+      const all = await cartsManager.read({ user_id }); // Filtrando por user_id
       if (all.length > 0) {
         return res.json({
           statusCode: 200,
           message: "Read",
           response: all,
         });
+      } else {
+        return res.json({
+          statusCode: 200,
+          message: "No carritos found for this user",
+          response: [],
+        });
       }
+    } else {
+      const error = new Error("Not found");
+      error.statusCode = 404;
+      throw error;
     }
-    const error = new Error("Not found");
-    error.statusCode = 404;
-    throw error;
   } catch (error) {
     return next(error);
   }
 }
+
 //READONE
 async function readOne(req, res, next) {
   try {
-    const { id } = req.session.user_id;
-    const one = await cartsManager.readOne(id);
+    const user_id = req.session.user_id; // Obteniendo user_id desde la sesión
+    const { cid } = req.params; // Obtener el ID del carrito de los parámetros de la ruta
+    const one = await cartsManager.readOne({ _id: cid, user_id }); // Filtrar por user_id y _id del carrito
     if (one) {
       return res.json({
         statusCode: 200,
@@ -64,6 +76,7 @@ async function readOne(req, res, next) {
     return next(error);
   }
 }
+
 //UPDATE
 async function update(req, res, next) {
   try {
@@ -78,6 +91,7 @@ async function update(req, res, next) {
     return next(error);
   }
 }
+
 //DESTROY
 async function destroy(req, res, next) {
   try {
@@ -94,3 +108,4 @@ async function destroy(req, res, next) {
 }
 
 export default cartsRouter;
+

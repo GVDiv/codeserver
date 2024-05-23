@@ -51,14 +51,15 @@ sessionsRouter.post(
 sessionsRouter.get("/online", async (req, res, next) => {
   try {
     if (req.session.online) {
-      if(req.session.user_id){
+      if (req.session.user_id) {
+        console.log("Session User ID:", req.session.user_id); // Línea de depuración
         return res.json({
           statusCode: 200,
           message: "Is online!",
           user_id: req.session.user_id,
           photo: req.session.photo,
           email: req.session.email,
-          role: req.session.role
+          role: req.session.role,
         });
       }
     }

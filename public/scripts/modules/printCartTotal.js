@@ -2,7 +2,7 @@ import buyProducts from "./buyProducts.js";
 
 export default function printCartTotal(arrayOfProducts, id) {
   const total = arrayOfProducts.reduce(
-    (acc, current) => acc + current.price * current.quantity,
+    (acc, current) => acc + current.product_id.price * current.quantity,
     0
   );
   const template = `
