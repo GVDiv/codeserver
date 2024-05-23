@@ -37,3 +37,10 @@
 .login-button:hover {
   background: #ff5151;
 }
+
+.login-text{
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}

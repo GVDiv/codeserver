@@ -36,7 +36,12 @@
       <input class="login-input" placeholder="E-mail" type="text" name="email" id="email">
       <input class="login-input" placeholder="Passowrd" type="password" name="password" id="password">
       <input class="login-input" placeholder="URL photo" type="text" name="photo" id="photo">
-      <input class="login-input" placeholder="Age" type="number" name="age" id="age">
+     <!-- <input class="login-input" placeholder="Age" type="number" name="age" id="age">-->
+     <label class="login-text" for="role">Role:</label>
+     <select class="login-input" id="role" name="role" required>
+       <option value="0">0 - User</option>
+       <option value="1">1 - Admin</option>
+     </select>
       <input class="login-button" type="button" id="register" value="Register!">
       <p>Have an account? <a href="../pages/login.html">Log in!</a></p>
     </form>
