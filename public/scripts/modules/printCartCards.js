@@ -27,7 +27,7 @@ export default async function printCartCards(id) {
         each.onchange = (event) => changeQuantityCart(event, products);
       });
       document.querySelectorAll(".remove-btn").forEach((each) => {
-        each.onclick = (event) => removeProduct(event, element._id);
+        each.onclick = (event) => removeProduct(event, each.getAttribute('data-product-id'));
       });
     } else {
       selector.innerHTML = `
