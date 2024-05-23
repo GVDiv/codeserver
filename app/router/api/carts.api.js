@@ -95,17 +95,19 @@ async function update(req, res, next) {
 //DESTROY
 async function destroy(req, res, next) {
   try {
-    const { cid } = req.params;
-    const one = await cartsManager.destroy(cid);
+    const user_id = req.session.user_id; // Obtenemos el ID del usuario de la sesión
+    // Eliminamos todos los productos del carrito asociados al usuario
+    const result = await cartsManager.destroyAll(user_id);
     return res.json({
       statusCode: 200,
-      message: `Product Removed`,
-      response: one,
+      message: `Cart Cleared`,
+      response: result,
     });
   } catch (error) {
     return next(error);
   }
 }
+
 
 export default cartsRouter;
 

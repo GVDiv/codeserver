@@ -74,6 +74,16 @@ class Manager {
       throw error;
     }
   }
+
+  async destroyAll(user_id) {
+    try {
+      const result = await this.Model.deleteMany({ user_id });
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  
 }
 
 export default Manager;
