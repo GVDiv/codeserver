@@ -10,6 +10,7 @@ export default async function printCartCards(id) {
     let products = await fetch("/api/carts?user_id=" + user_id);
     products = await products.json();
     products = products.response;
+    console.log(products);
     let cartTemplates = "";
     const selector = document.getElementById(id);
     if (products?.length > 0) {

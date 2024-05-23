@@ -55,7 +55,10 @@ sessionsRouter.get("/online", async (req, res, next) => {
         return res.json({
           statusCode: 200,
           message: "Is online!",
-          user_id: req.session.user_id
+          user_id: req.session.user_id,
+          photo: req.session.photo,
+          email: req.session.email,
+          role: req.session.role
         });
       }
     }

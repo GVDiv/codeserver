@@ -13,7 +13,8 @@ cartsRouter.delete("/:cid", destroy);
 async function create(req, res, next) {
   try {
     const data = req.body;
-    const one = await cartsManager.create(data);
+    const user_id = req.session.user_id;
+    const one = await cartsManager.create(data, user_id);
     return res.json({
       statusCode: 201,
       message: "Create",
@@ -26,7 +27,7 @@ async function create(req, res, next) {
 //READ
 async function read(req, res, next) {
   try {
-    const { user_id } = req.query;
+    const { user_id } = req.session;
     if (user_id) {
       const all = await cartsManager.read({ user_id });
       if (all.length > 0) {
@@ -47,8 +48,8 @@ async function read(req, res, next) {
 //READONE
 async function readOne(req, res, next) {
   try {
-    const { cid } = req.params;
-    const one = await cartsManager.readOne(cid);
+    const { id } = req.session.user_id;
+    const one = await cartsManager.readOne(id);
     if (one) {
       return res.json({
         statusCode: 200,
