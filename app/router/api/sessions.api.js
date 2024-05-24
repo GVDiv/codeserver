@@ -1,20 +1,13 @@
 import { Router } from "express";
-import userManager from "../../data/mongo/managers/UsersManager.mongo.js";
-import isValidEmail from "../../middlewares/isValidEmail.mid.js";
-import isValidData from "../../middlewares/isValidData.mid.js";
-import isValidUser from "../../middlewares/isValidUser.mid.js";
-import isValidPassword from "../../middlewares/isValidPassword.mid.js";
+import passport from "../../middlewares/passport.mid.js";
 
 const sessionsRouter = Router();
 
 sessionsRouter.post(
   "/register",
-  isValidData,
-  isValidEmail,
+  passport.authenticate("register", { session: false }),
   async (req, res, next) => {
     try {
-      const data = req.body;
-      const one = await userManager.create(data);
       return res.json({
         statusCode: 201,
         message: "Registered",
@@ -26,21 +19,12 @@ sessionsRouter.post(
 );
 sessionsRouter.post(
   "/login",
-  isValidUser,
-  isValidPassword,
+  passport.authenticate("login", { session: false }),
   async (req, res, next) => {
     try {
-      const { email } = req.body;
-      const one = await userManager.readByEmail(email);
-      req.session.email = email;
-      req.session.online = true;
-      req.session.role = one.role;
-      req.session.photo = one.photo;
-      req.session.user_id = one._id;
       return res.json({
         statusCode: 200,
         message: "Logged in!",
-        user_id: one._id,
       });
     } catch (error) {
       return next(error);
@@ -74,8 +58,13 @@ sessionsRouter.get("/online", async (req, res, next) => {
 
 sessionsRouter.post("/signout", (req, res, next) => {
   try {
-    req.session.destroy();
-    return res.json({ statusCode: 200, message: "Signed out!" });
+    if (req.session.email) {
+      req.session.destroy();
+      return res.json({ statusCode: 200, message: "Signed out!" });
+    }
+    const error = new Error("invalid credentials from signout!");
+    error.statusCode = 401;
+    throw error;
   } catch (error) {
     return next(error);
   }
