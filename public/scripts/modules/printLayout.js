@@ -86,6 +86,7 @@ async function printIcons() {
       const opts = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+
       };
       let response = await fetch("/api/sessions/signout", opts);
       response = await response.json();

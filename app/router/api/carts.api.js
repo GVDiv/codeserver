@@ -1,19 +1,20 @@
 import { Router } from "express";
+import passport from "passport"; // Asegúrate de tener passport configurado correctamente
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
 const cartsRouter = Router();
 
-cartsRouter.get("/", read);
-cartsRouter.get("/:cid", readOne);
-cartsRouter.post("/", create);
-cartsRouter.put("/:cid", update);
-cartsRouter.delete("/:cid", destroy);
+cartsRouter.get("/", passport.authenticate("jwt", { session: false }), read);
+cartsRouter.get("/:cid", passport.authenticate("jwt", { session: false }), readOne);
+cartsRouter.post("/", passport.authenticate("jwt", { session: false }), create);
+cartsRouter.put("/:cid", passport.authenticate("jwt", { session: false }), update);
+cartsRouter.delete("/:cid", passport.authenticate("jwt", { session: false }), destroy);
 
 //CREATE
 async function create(req, res, next) {
   try {
     const data = req.body;
-    const user_id = req.session.user_id;
+    const user_id = req.user._id; // Obtener user_id del JWT
     const one = await cartsManager.create({ ...data, user_id }); // Asociar el carrito al usuario
     return res.json({
       statusCode: 201,
@@ -28,8 +29,8 @@ async function create(req, res, next) {
 //READ
 async function read(req, res, next) {
   try {
-    const user_id = req.session.user_id; // Obteniendo user_id desde la sesión
-    console.log("User ID from session:", user_id); // Línea de depuración
+    const user_id = req.user._id; // Obtener user_id del JWT
+    console.log("User ID from JWT:", user_id); // Línea de depuración
 
     if (user_id) {
       const all = await cartsManager.read({ user_id }); // Filtrando por user_id
@@ -59,7 +60,7 @@ async function read(req, res, next) {
 //READONE
 async function readOne(req, res, next) {
   try {
-    const user_id = req.session.user_id; // Obteniendo user_id desde la sesión
+    const user_id = req.user._id; // Obtener user_id del JWT
     const { cid } = req.params; // Obtener el ID del carrito de los parámetros de la ruta
     const one = await cartsManager.readOne({ _id: cid, user_id }); // Filtrar por user_id y _id del carrito
     if (one) {
@@ -95,7 +96,7 @@ async function update(req, res, next) {
 //DESTROY
 async function destroy(req, res, next) {
   try {
-    const user_id = req.session.user_id; // Obtenemos el ID del usuario de la sesión
+    const user_id = req.user._id; // Obtener user_id del JWT
     // Eliminamos todos los productos del carrito asociados al usuario
     const result = await cartsManager.destroyAll(user_id);
     return res.json({
@@ -108,6 +109,4 @@ async function destroy(req, res, next) {
   }
 }
 
-
 export default cartsRouter;
-

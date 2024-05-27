@@ -25,6 +25,8 @@ document.querySelector("#login").addEventListener("click", async () => {
   let response = await fetch("/api/sessions/login", opts);
   response = await response.json();
   if (response.statusCode === 200) {
+    //console.log(response)
+    //localStorage.setItem("token", response.token)
     return location.replace("/");
   }
   return Swal.fire({
