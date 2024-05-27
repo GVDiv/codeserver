@@ -19,6 +19,7 @@ export default async function printDetails(id) {
       <div class="product-description">
         <span class="product-label">Descripción</span>
         <p>${product.size_id.description}</p>
+        <p>${product.size_id.size}</p>
       </div>
     </div>
     <div class="product-checkout-block">
