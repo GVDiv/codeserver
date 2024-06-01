@@ -8,7 +8,6 @@ export default async function saveProduct(id) {
         const data = {
           product_id: id,
           user_id,
-          //color: document.querySelector("#color-" + id).value,
           quantity: Number(document.querySelector("#quantity-" + id).value),
         };
         const opts = {
@@ -18,6 +17,7 @@ export default async function saveProduct(id) {
         };
         let response = await fetch("/api/carts", opts);
         response = await response.json();
+        console.log(response)
         if (response.statusCode === 201) {
           Swal.fire({
             title: "Done!",
