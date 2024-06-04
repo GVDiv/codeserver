@@ -1,25 +1,27 @@
 # codeserver
 
--ProductManager: con el gestor de productos se puede agregar un nuevo producto al arreglo de productos, llamando al metodo create y pasandole el objeto con las propiedades title, photo, category, price y stock.
-Ahora es posible filtar por category en funcion read
+                        ---------------Sprint_6---------------
 
-para probarlo:
--copiar el link del repositorio de github
--abrir la terminal en tu editor de codigo
--clonar el repositorio con el comando: git clone "link copiado de github"
--ubicarse en la carpeta que se descargo el repositorio con el comando: cd ./"nombre de la carpeta"
--escribir en la termina el comando: node ./ProductManager.js
--en la terminal deberia aparecer la cantidad de productos creados
+vistas:
+   home: http://localhost:8080/index.html,
+        productos y paginacion
+   product detail: http://localhost:8080/pages/details.html?id=663a4b2f7d424fb06cc1766f,
+        imagen, decripcion, precio, input numerico y boton de compra - FUNCIONAL
+    login: http://localhost:8080/pages/login.html
+        formulario de acceso requiere email y password - FUNCIONAL
+        link de registro
+    register: http://localhost:8080/pages/register.html,
+        formulario de registro requiere como minimo email y password - FUNCIONAL
+        link de login
+    profile: http://localhost:8080/pages/profile.html,
+        foto de prefil, user y rol
+    cart: http://localhost:8080/pages/cart.html
+        lista de productos comprados con su boton de eliminar
+        seccion de resumen con boton de compra
+        al finalizar la compra se borran los productos- FUNCIONAL
+    
 
-    -----------------------------------------------------------------------------
+                    ---------------Sprint_7---------------
 
--UserManager: con el gestor de usuarios se puede agregar un nuevo usuario al arreglo de users, llamando al metodo create y pasandole el objeto con las propiedades photo, email, password y role.
-Ahora es posible filtar por role en funcion read
-
-para probarlo:
--copiar el link del repositorio de github
--abrir la terminal en tu editor de codigo
--clonar el repositorio con el comando: git clone "link copiado de github"
--ubicarse en la carpeta que se descargo el repositorio con el comando: cd ./"nombre de la carpeta"
--escribir en la termina el comando: node ./UserManager.js
--en la terminal deberia aparecer la cantidad de usuarios creados
+se agrego la estrategia de passport + jwt
+    

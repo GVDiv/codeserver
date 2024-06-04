@@ -33,7 +33,7 @@ const schema = new Schema(
 schema.plugin(mongoosePaginate);
 
 schema.pre("find", function () {
-  this.populate("category_id");
+  this.populate("category_id size_id");
 });
 schema.pre("findOne", function () {
   this.populate("size_id category_id");
