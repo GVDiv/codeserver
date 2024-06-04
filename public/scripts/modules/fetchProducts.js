@@ -5,7 +5,7 @@ export default async function fetchProducts(id, filter) {
     const query = location.search;
     const params = new URLSearchParams(query);
     const page = params.get("page");
-    console.log(page);
+    //console.log(page);
     let res = await fetch(
       `/api/products/paginate?title=${filter}&page=${page || 1}`
     );
