@@ -2,7 +2,6 @@ class Manager {
   constructor(Model) {
     this.Model = Model;
   }
-
   async create(data) {
     try {
       const one = await this.Model.create(data);
