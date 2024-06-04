@@ -6,18 +6,18 @@ export default async function printCartCards(id) {
   try {
     let response = await fetch("/api/sessions/online");
     response = await response.json();
-    const user_id = response.user_id;
+    const user_id = response.response._id;
     console.log("User ID:", user_id); // Línea de depuración
 
-    let cartResponse = await fetch("/api/carts");
+    let cartResponse = await fetch(`/api/carts?user_id=${user_id}`);
     let cartData = await cartResponse.json();
     console.log("Cart Data:", cartData); // Línea de depuración
-    let products = cartData.response;
+    let products = cartData.response || []; // Asegurarse de que products siempre sea un arreglo
     console.log("Products:", products); // Línea de depuración
 
     let cartTemplates = "";
     const selector = document.getElementById(id);
-    if (products?.length > 0) {
+    if (products.length > 0) {
       for (const element of products) {
         cartTemplates += createCartCard(element._id, element.product_id, element.quantity);
       }
@@ -40,5 +40,6 @@ export default async function printCartCards(id) {
     return products; // Devuelve los productos del carrito
   } catch (error) {
     console.log(error.message);
+    return []; // Devuelve un arreglo vacío en caso de error
   }
 }
