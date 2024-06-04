@@ -5,7 +5,7 @@ export default async function removeProduct(event) {
     };
     let response = await fetch("/api/sessions/online", opts);
     response = await response.json();
-    const user_id = response.user_id;
+    const user_id = response.response._id;
     if (user_id) {
       const opts = {
         method: "DELETE",

@@ -48,12 +48,13 @@ class CustomRouter {
         try {
           token = verifyToken(token);
           const { role, email } = token;
+          console.log(token)
           if (
             (policies.includes("USER") && role === 0) ||
             (policies.includes("ADMIN") && role === 1)
           ) {
             const user = await usersManager.readByEmail(email);
-            //proteger contraseña del usuario!!!
+            delete user.password //proteger contraseña del usuario!!!
             req.user = user;
             return next();
           } else return res.error403();

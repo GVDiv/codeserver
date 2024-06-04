@@ -3,11 +3,11 @@ import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
 class CartsRouter extends CustomRouter {
   init() {
-    this.create("/", ["USER"], create);
-    this.read("/", ["USER"], read);
-    this.read("/:nid", ["USER"], readOne);
-    this.update("/:nid", ["USER"], update);
-    this.destroy("/:nid", ["USER"], destroy);
+    this.create("/", ["USER", "ADMIN"], create);
+    this.read("/", ["USER", "ADMIN"], read);
+    this.read("/:nid", ["USER", "ADMIN"], readOne);
+    this.update("/:nid", ["USER", "ADMIN"], update);
+    this.destroy("/:nid", ["USER", "ADMIN"], destroy);
   }
 }
 

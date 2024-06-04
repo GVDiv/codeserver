@@ -6,10 +6,10 @@ import uploader from "../../middlewares/multer.mid.js";
 class UsersRouter extends CustomRouter {
   init() {
     this.create("/", ["PUBLIC"], uploader.single("photo"), isPhoto, create);
-    this.read("/", ["USER"], read);
-    this.read("/:uid", ["USER"], readOne);
-    this.update("/:uid", ["USER"], update);
-    this.destroy("/:uid", ["USER"], destroy);
+    this.read("/", ["USER", "ADMIN"], read);
+    this.read("/:uid", ["USER", "ADMIN"], readOne);
+    this.update("/:uid", ["USER", "ADMIN"], update);
+    this.destroy("/:uid", ["USER", "ADMIN"], destroy);
   }
 }
 
