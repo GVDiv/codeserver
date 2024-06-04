@@ -86,12 +86,17 @@ async function printIcons() {
       const opts = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-
       };
-      let response = await fetch("/api/sessions/signout", opts);
-      response = await response.json();
-      if (response.statusCode === 200) {
-        location.replace("/");
+      try {
+        let response = await fetch("/api/sessions/signout", opts);
+        response = await response.json();
+        if (response.statusCode === 200) {
+          location.replace("/");
+        } else {
+          console.error("Failed to sign out:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during signout:", error);
       }
     };
   } else {

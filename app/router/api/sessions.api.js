@@ -1,73 +1,66 @@
-import { Router } from "express";
-import passport from "../../middlewares/passport.mid.js"; // Asegúrate de que la ruta sea correcta
+import CustomRouter from "../CustomRouter.js";
+import passport from "../../middlewares/passport.mid.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
 
-const sessionsRouter = Router();
-
-sessionsRouter.post(
-  "/register",
-  passportCb("register"),
-  async (req, res, next) => {
-    try {
-      return res.json({
-        statusCode: 201,
-        message: "Registered",
-      });
-    } catch (error) {
-      return next(error);
-    }
+class SessionsRouter extends CustomRouter {
+  init() {
+    this.create("/register", ["PUBLIC"], passportCb("register"), register);
+    this.create("/login", ["PUBLIC"], passportCb("login"), login);
+    this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), profile);
+    this.create("/signout", ["USER", "ADMIN"], signout);
+    this.read("/google",["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }));
+    this.read("/google/callback", ["PUBLIC"], passport.authenticate("google", { session: false }), google);
   }
-);
+}
 
-sessionsRouter.post(
-  "/login",
-  passportCb("login"),
-  async (req, res, next) => {
-    try {
-      return res.cookie("token", req.user.token, { signedCookie: true }).json({
-        statusCode: 200,
-        message: "Logged in!",
-      });
-    } catch (error) {
-      return next(error);
-    }
-  }
-);
+const sessionsRouter = new SessionsRouter();
+export default sessionsRouter.getRouter();
 
-sessionsRouter.get(
-  "/online",
-  passportCb("jwt"),
-  async (req, res, next) => {
-    try {
-      if (req.user.online) {
-        return res.json({
-          statusCode: 200,
-          message: "Is online!",
-          user_id: req.user._id,
-          photo: req.user.photo,
-          email: req.user.email,
-          role: req.user.role,
-        });
-      }
-      return res.status(401).json({
-        statusCode: 401,
-        message: "Bad auth!",
-      });
-    } catch (error) {
-      return next(error);
-    }
-  }
-);
-
-sessionsRouter.post("/signout", (req, res, next) => {
+async function register(req, res, next) {
   try {
-    // Aquí puedes manejar el cierre de sesión eliminando el token del cliente
-    res.clearCookie("token");
-    return res.json({ statusCode: 200, message: "Signed out!" });
+    return res.message201("Registered!");
   } catch (error) {
     return next(error);
   }
-});
-
-export default sessionsRouter;
-
+}
+async function login(req, res, next) {
+  try {
+    return res
+      .cookie("token", req.user.token, { signedCookie: true })
+      .message200("Logged in!");
+  } catch (error) {
+    return next(error);
+  }
+}
+async function profile(req, res, next) {
+  try {
+    if (req.user.online) {
+      return res.response200(req.user);
+    }
+    const error = new Error("Bad auth");
+    error.statusCode = 401;
+    throw error;
+  } catch (error) {
+    return next(error);
+  }
+}
+function signout(req, res, next) {
+  try {
+    if (req.user) {
+      res.clearCookie("token"); // Clear the token cookie on signout
+      return res.message200("Signed out!");
+    }
+    const error = new Error("Invalid credentials from signout");
+    error.statusCode = 401;
+    throw error;
+  } catch (error) {
+    return next(error);
+  }
+}
+function google(req, res, next) {
+  try {
+    return res.message200("Logged in with google!");
+  } catch (error) {
+    return next(error);
+  }
+}

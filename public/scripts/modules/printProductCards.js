@@ -3,7 +3,6 @@ import createProductCard from "./createProductCard.js";
 export default function printProductCards(arrayOfProducts, idSelector) {
   let productsTemplate = "";
   const productsSelector = document.getElementById(idSelector);
-  console.log(arrayOfProducts)
   if (arrayOfProducts.length > 0) {
     arrayOfProducts
       .sort((a, b) => a.title.localeCompare(b.title))
