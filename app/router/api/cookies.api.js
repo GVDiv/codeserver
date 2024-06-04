@@ -5,14 +5,14 @@ const cookiesRouter = Router();
 cookiesRouter.get("/set", (req, res, next) => {
   try {
     return res
-      .cookie("modo", "nocturno", { maxAge: 10000 })
+      .cookie("modo", "nocturno", { maxAge: 100000 })
+      .cookie("otra", "cookie nueva", { maxAge: 60000 })
       .cookie("online", "true", { maxAge: 60 * 60 * 1000 })
-      .json({ message: "la cookie vence en 10 segundos" });
+      .json({ message: "la cookie vence en 10s" });
   } catch (error) {
     return next(error);
   }
 });
-
 cookiesRouter.get("/", (req, res, next) => {
   try {
     const cookies = req.cookies;
@@ -22,7 +22,6 @@ cookiesRouter.get("/", (req, res, next) => {
     return next(error);
   }
 });
-
 cookiesRouter.get("/destroy/:cookie", (req, res, next) => {
   try {
     const { cookie } = req.params;
@@ -33,7 +32,6 @@ cookiesRouter.get("/destroy/:cookie", (req, res, next) => {
     return next(error);
   }
 });
-
 cookiesRouter.get("/signed", (req, res, next) => {
   try {
     return res
@@ -43,12 +41,12 @@ cookiesRouter.get("/signed", (req, res, next) => {
     return next(error);
   }
 });
-
 cookiesRouter.get("/get-signed", (req, res, next) => {
-    try {
-      return res.json({message: req.signedCookies})
-    } catch (error) {
-      return next(error);
-    }
-  });
+  try {
+    return res.json({ message: req.signedCookies });
+  } catch (error) {
+    return next(error);
+  }
+});
+
 export default cookiesRouter;

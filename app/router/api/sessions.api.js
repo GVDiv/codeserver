@@ -1,60 +1,66 @@
-import { Router } from "express";
-import userManager from "../../data/mongo/managers/UsersManager.mongo.js";
-import isValidEmail from "../../middlewares/isValidEmail.mid.js";
+import CustomRouter from "../CustomRouter.js";
+import passport from "../../middlewares/passport.mid.js";
+import passportCb from "../../middlewares/passportCb.mid.js";
 
-const sessionsRouter = Router();
+class SessionsRouter extends CustomRouter {
+  init() {
+    this.create("/register", ["PUBLIC"], passportCb("register"), register);
+    this.create("/login", ["PUBLIC"], passportCb("login"), login);
+    this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), profile);
+    this.create("/signout", ["USER", "ADMIN"], signout);
+    this.read("/google",["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }));
+    this.read("/google/callback", ["PUBLIC"], passport.authenticate("google", { session: false }), google);
+  }
+}
 
-sessionsRouter.post("/register", isValidEmail, async (req, res, next) => {
+const sessionsRouter = new SessionsRouter();
+export default sessionsRouter.getRouter();
+
+async function register(req, res, next) {
   try {
-    const data = req.body;
-    const one = await userManager.create(data);
-    return res.json({
-      statusCode: 201,
-      message: "Registered",
-    });
+    return res.message201("Registered!");
   } catch (error) {
     return next(error);
   }
-});
-sessionsRouter.post("/login", async (req, res, next) => {
+}
+async function login(req, res, next) {
   try {
-    const { email, password } = req.body;
-    const one = await userManager.readByEmail(email);
-    if (one.password === password) {
-      req.session.email = email;
-      req.session.online = true;
-      req.session.role = one.role;
-      req.session.user_id = one._id;
-      return res.json({
-        statusCode: 200,
-        message: "Logged in!",
-        user_id: one._id,
-      });
+    return res
+      .cookie("token", req.user.token, { signedCookie: true })
+      .message200("Logged in!");
+  } catch (error) {
+    return next(error);
+  }
+}
+async function profile(req, res, next) {
+  try {
+    if (req.user.online) {
+      return res.response200(req.user);
     }
-    return res.json({
-      statusCode: 401,
-      message: "Bad auth!",
-    });
+    const error = new Error("Bad auth");
+    error.statusCode = 401;
+    throw error;
   } catch (error) {
     return next(error);
   }
-});
-
-sessionsRouter.get("/online", async (req, res, next) => {
+}
+function signout(req, res, next) {
   try {
-    if (req.session.online) {
-      return res.json({
-        statusCode: 200,
-        message: "Is online!",
-      });
+    if (req.user) {
+      res.clearCookie("token"); // Clear the token cookie on signout
+      return res.message200("Signed out!");
     }
-    return res.json({
-      statusCode: 401,
-      message: "Bad auth!",
-    });
+    const error = new Error("Invalid credentials from signout");
+    error.statusCode = 401;
+    throw error;
   } catch (error) {
     return next(error);
   }
-});
-
-export default sessionsRouter;
+}
+function google(req, res, next) {
+  try {
+    return res.message200("Logged in with google!");
+  } catch (error) {
+    return next(error);
+  }
+}

@@ -18,7 +18,7 @@ const schema = new Schema(
 );
 
 schema.pre("find", function () {
-  this.populate("user_id", "email role -_id");
+  this.populate("user_id", "email role photo -_id");
 });
 schema.pre("find", function () {
   this.populate("product_id");
