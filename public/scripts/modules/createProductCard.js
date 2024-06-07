@@ -4,12 +4,14 @@ export default function createProductCard(product) {
         <img class="product-img" src="${product.photo}" alt="${product._id}">
         <div class="product-info">
           <span class="product-title">${product.title}</span>
-          <div class="product-price-block">
-            <span class="product-price">$${product.price}</span>
-            <span class="product-discount">50% Off</span>
-          </div>
-          <div class="product-tax-policy">Incluye impuesto País y percepción AFIP</div>
         </div>
       </a>
     `;
   }
+  /**
+   * <div class="product-price-block">
+            <span class="product-price">$${product.price}</span>
+            <span class="product-discount">50% Off</span>
+          </div>
+          <div class="product-tax-policy">Incluye impuesto País y percepción AFIP</div>
+   */
