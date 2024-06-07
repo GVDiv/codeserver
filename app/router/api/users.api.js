@@ -74,7 +74,6 @@ async function update(req, res, next) {
     return next(error);
   }
 }
-
 async function destroy(req, res, next) {
   try {
     const { uid } = req.params;
