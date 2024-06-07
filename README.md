@@ -1,6 +1,6 @@
 # codeserver
 
-                        ---------------Sprint_6---------------
+                        ---------------Sprint_8---------------
 
 vistas:
    home: http://localhost:8080/index.html,
@@ -20,8 +20,10 @@ vistas:
         seccion de resumen con boton de compra
         al finalizar la compra se borran los productos- FUNCIONAL
     
-
-                    ---------------Sprint_7---------------
-
 se agrego la estrategia de passport + jwt
+
+se agrego el CustomRouter y se modificaron todas las rutas de las api
+                    
+se agrego las politicas de usuario para role 0(user) y role 1(admin)
+
     

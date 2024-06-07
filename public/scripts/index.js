@@ -6,11 +6,10 @@ printIcons();
 
 fetch("./scripts/data/layoutOptions.json")
   .then((res) => {
-    console.log(res);
     return res.json();
   })
   .then((res) => {
-    console.log(res);
+   //console.log(res);
     printNavBar(res, "navbar");
     printFooter(res, "footer");
   })
