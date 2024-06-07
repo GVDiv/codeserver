@@ -1,14 +1,12 @@
-import "dotenv/config.js";
-import express, { json } from "express";
+import environment from "./app/utils/env.util.js";
+import express from "express";
 import { createServer } from "http";
-import { engine } from "express-handlebars";
 import { Server } from "socket.io";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-//import fileStore from "session-file-store";
-//console.log(process.env.MONGO_URI)
+import argsUtil from "./app/utils/args.util.js";
 
 import indexRouter from "./app/router/index.router.js";
 import socketCb from "./app/router/index.socket.js";
@@ -19,7 +17,7 @@ import dbConnect from "./app/utils/dbConnect.util.js";
 
 //SERVER
 const server = express();
-const port = process.env.PORT || 9000;
+const port = environment.PORT || argsUtil.p;
 const ready = async () => {
   console.log("server ready on port " + port);
   await dbConnect();
@@ -30,7 +28,6 @@ const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
 nodeServer.listen(port, ready);
 socketServer.on("connection", socketCb);
-
 //MIDLEWARES
 server.use(cookieParser(process.env.SECRET_COOKIE));
 server.use(express.json()); //LEE Y TRANSFORMA A FORMATO JSON
@@ -40,12 +37,6 @@ server.use(morgan("dev"));
 //const FileSession = fileStore(session);
 server.use(
   session({
-    /*
-    file store
-    store: new FileSession({
-      path: "./app/data/fs/files/sessions",
-      ttl: 60 * 60,
-    }),*/
     store: new MongoStore({
       mongoUrl: process.env.MONGO_URI,
       ttl: 60 * 60,
@@ -56,9 +47,9 @@ server.use(
     //cookie: { maxAge: 60 * 60 * 1000}
   })
 );
-
 //ROUTER
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHanddler);
-
+//console.log(argsUtil);
+//console.log(environment)
