@@ -114,12 +114,20 @@ nav {
 
 /* HERO SECTION */
 .hero-section {
-  height: 200px;
-  background: url(".././assets/hero_bg.png");
+  height: 20rem;
+  background: url("https://i.imgur.com/hjJIjfY.png?1");
   background-size: cover;
-  background-position: top center;
+  background-position: center;
   display: flex;
   justify-content: center;
+}
+
+.hero-name {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: system-ui;
 }
 
 .hero-title {

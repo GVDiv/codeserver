@@ -1,5 +1,5 @@
 import { printNavBar, printFooter, printIcons } from "./modules/printLayout.js";
-import printFilter from "./modules/printFilter.js";
+//import printFilter from "./modules/printFilter.js";
 import fetchProducts from "./modules/fetchProducts.js";
 
 printIcons();
@@ -17,5 +17,5 @@ fetch("./scripts/data/layoutOptions.json")
 
 fetchProducts("products","")
 
-const searchSelector = document.querySelector("#search");
-searchSelector.addEventListener("keyup", printFilter);
+//const searchSelector = document.querySelector("#search");
+//searchSelector.addEventListener("keyup", printFilter);
