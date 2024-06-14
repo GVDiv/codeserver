@@ -26,4 +26,6 @@ se agrego el CustomRouter y se modificaron todas las rutas de las api
                     
 se agrego las politicas de usuario para role 0(user) y role 1(admin)
 
+se agrego las carpetas controller y services
+
     
