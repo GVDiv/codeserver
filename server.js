@@ -13,14 +13,15 @@ import socketCb from "./app/router/index.socket.js";
 import errorHandler from "./app/middlewares/errorHandler.mid.js";
 import pathHanddler from "./app/middlewares/pathHanddler.mid.js";
 import __dirname from "./utils.js";
-import dbConnect from "./app/utils/dbConnect.util.js";
+//import dbConnect from "./app/utils/dbConnect.util.js";
 
 //SERVER
 const server = express();
 const port = environment.PORT || argsUtil.p;
 const ready = async () => {
   console.log("server ready on port " + port);
-  await dbConnect();
+  //await dbConnect();
+  //hay que incluir la conexion a mongo desde el patron factory
 };
 //CREO UN SERVIDOR DE NODE, CON LAS CONFIGURACIONES DEL SERVIDOR DE EXPRESS
 const nodeServer = createServer(server);
